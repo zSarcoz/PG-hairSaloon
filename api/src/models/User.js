@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize');
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
   // defino el modelo
-  sequelize.define('videogame', {
+  sequelize.define('user', {
     id:{
       type:DataTypes.UUID,// Genero un id aleatorio con numeros y letras
       defaultValue: DataTypes.UUIDV4,// Identificador universal segun la norma V4
@@ -14,29 +14,27 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description:{
-      type:DataTypes.TEXT,
-      allowNull:false
-    },
-    release_date:{
-      type:DataTypes.DATEONLY,
-      defaultValue: DataTypes.NOW,
-    },
-    rating:{
-      type:DataTypes.FLOAT
-    },
-    platforms:{
-      type:DataTypes.ARRAY(DataTypes.STRING),
-      allowNull:false
-    },
-    image: {
+    lastName: {
       type: DataTypes.STRING,
-      // allowNull: false,
+      allowNull: false
     },
-    createdInDb:{
-      type: DataTypes.BOOLEAN,
-      allowNull:false,
-      defaultValue:true,
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    mobile_number: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    cedula: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    direction: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
+  }, {
+    timestamps: false,
   });
 }
