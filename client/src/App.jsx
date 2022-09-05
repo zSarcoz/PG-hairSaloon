@@ -10,7 +10,7 @@ function App() {
       <BrowserRouter>
         <div className="App">
           <Switch>
-            <Route exact path="/">
+            <Route exact path="/register">
               <Register />
             </Route>
             {/* <Route component={ErrorNotFound} /> */}
