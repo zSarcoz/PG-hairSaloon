@@ -37,7 +37,7 @@ module.exports = (sequelize) => {
     },
     permissions:{
       type: DataTypes.BOOLEAN,
-      defaultValue: false
+      defaultValue: true
     }
   },{
       timestamps:false,
