@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter>
         <div className="App">
           <Switch>  
-            <Route exact path="/employee">
+            <Route exact path="/register/employee">
               <RegisterBr />
             </Route>
             <Route exact path="/register">

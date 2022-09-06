@@ -1,5 +1,6 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { registerBarber } from "../../redux/actions";
+import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import "../styles/style.css";
@@ -7,61 +8,61 @@ import "../styles/plugins.css";
 import "../styles/responsive.css";
 
 export default function RegisterBr() {
-    const dispatch = useDispatch()
-    const [employee, setEmployee] = useState({
+  const dispatch = useDispatch();
+  const navigate = useHistory();
+  const [employee, setEmployee] = useState({
+    name: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    cedula: "",
+    checkIn: "",
+  });
+  const { name, lastName, email, phone, cedula, checkIn } = employee;
+  const handleOnChange = (e) => {
+    // e.preventDefault()
+    setEmployee({
+      ...employee,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(employee);
+    try {
+      // if (
+      //   name.length !== 0 &&
+      //   // image.length !== 0 &&
+      //   description.length !== 0 &&
+      //   genres.length !== 0 &&
+      //   platforms.length !== 0 &&
+      //   rating.length !== 0 &&
+      //   rating > 0 && rating < 6 &&
+      //   release_date.length !== 0
+      // ) {
+      dispatch(registerBarber(employee));
+      setEmployee({
         name: "",
         lastName: "",
         email: "",
         phone: 0,
-        cedula: 0,
         checkIn: 0,
+        cedula: 0,
       });
-      const { name, lastName, email, phone, cedula, checkIn } = employee;
-    const handleOnChange = (e) => {
-        // e.preventDefault()
-        setEmployee({
-          ...employee,
-          [e.target.name]: e.target.value,
-        });
-      };
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(user);
-        try {
-          // if (
-          //   name.length !== 0 &&
-          //   // image.length !== 0 &&
-          //   description.length !== 0 &&
-          //   genres.length !== 0 &&
-          //   platforms.length !== 0 &&
-          //   rating.length !== 0 &&
-          //   rating > 0 && rating < 6 &&
-          //   release_date.length !== 0
-          // ) {
-          dispatch(registerBarber(employee));
-          setUser({
-            name: "",
-            lastName: "",
-            email: "",
-            phone: 0,
-            checkIn: 0,
-            cedula: 0,
-          });
-          history.push("/home");
-    
-          // else if(name.length === 0 ||
-          //   // image.length === 0 ||
-          //   description.length === 0 ||
-          //   genres.length === 0 ||
-          //   platforms.length === 0 ||
-          //   release_date.length === 0){
-          //     alert("Please fill all the fields");
-          // }
-        } catch (error) {
-          console.log("Error to Create a User");
-        }
-      };
+      navigate.push("/home");
 
+      // else if(name.length === 0 ||
+      //   // image.length === 0 ||
+      //   description.length === 0 ||
+      //   genres.length === 0 ||
+      //   platforms.length === 0 ||
+      //   release_date.length === 0){
+      //     alert("Please fill all the fields");
+      // }
+    } catch (error) {
+      console.log("Error to Create a Barber", error);
+    }
+  };
 
   return (
     <>
@@ -141,8 +142,8 @@ export default function RegisterBr() {
                         onChange={(e) => handleOnChange(e)}
                       />
                       <input
-                        type="text"
-                        placeholder="Dirección"
+                        type="date"
+                        placeholder="CheckIn"
                         value={checkIn}
                         name="checkIn"
                         onChange={(e) => handleOnChange(e)}

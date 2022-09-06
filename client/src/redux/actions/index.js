@@ -47,7 +47,8 @@ export function registerBarber(payload) {
   return async function () {
     try {
       await axios.post("http://localhost:3001/barber", { ...payload });
-      alert("Succefully created");
+      console.log("barber succesfully created")
+      // alert("Succefully created");
     } catch (err) {
       console.log(err);
     }

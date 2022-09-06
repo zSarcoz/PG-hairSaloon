@@ -664,11 +664,11 @@ code {
 /* ----------------------------------------------------
     Form input box
 ---------------------------------------------------- */
-input::-webkit-outer-spin-button,
+/* input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
+} */
 
 
 
@@ -677,6 +677,7 @@ input[type="email"],
 input[type="password"],
 input[type="submit"],
 input[type="number"],
+input[type="date"],
 textarea {
   background-color: var(--white);
   border: 2px solid;
@@ -697,6 +698,7 @@ input[type="email"]::-webkit-input-placeholder,
 input[type="password"]::-webkit-input-placeholder,
 input[type="submit"]::-webkit-input-placeholder,
 input[type="number"]::-webkit-input-placeholder,
+input[type="date"]::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: var(--ltn__paragraph-color);
