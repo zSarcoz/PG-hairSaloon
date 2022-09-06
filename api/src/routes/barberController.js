@@ -1,4 +1,4 @@
-const { User } = require("../db.js");
+const { Barber } = require("../db.js");
 const { Router } = require("express");
 // const bcrypt = require("bcrypt");
 const router = Router();
@@ -16,9 +16,9 @@ const router = Router();
 // };
 router.get("/", async (req, res, next) => {
   try {
-    let allUsers = await User.findAll();
-    if (allUsers.length) {
-      res.status(200).json(allUsers);
+    let allBarbers = await Barber.findAll();
+    if (allBarbers.length) {
+      res.status(200).json(allBarbers);
     } else {
       res.status(404).send({ message: "Users not found" });
     }
@@ -28,21 +28,22 @@ router.get("/", async (req, res, next) => {
 });
 
 router.post("/", async (req, res) => {
-  const { name, lastName, email, cedula, direction,/* password,*/ phone } =
+  const { name, lastName, email, cedula,/* password,*/ phone, checkIn } =
     req.body;
   // const hashFun = await hash(password);
   try {
-    let userCreated = await User.create({
+    let barberCreated = await Barber.create({
       name: name,
       lastName: lastName,
       email: email,
       // password: password,
       // password: hashFun,
       cedula: cedula,
-      direction: direction,
       phone: phone,
+      checkIn: checkIn
+
     });
-    return res.status(201).json(userCreated);
+    return res.status(201).json(barberCreated);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
