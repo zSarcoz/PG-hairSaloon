@@ -1,8 +1,8 @@
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import ErrorNotFound from "./components/ErrorNotFound";
-import Register from "./components/Register.jsx";
-import Login from "./components/Login.jsx";
+import Register from "./components/Forms/Register";
+import Login from "./components/Forms/Login.jsx";
 
 
 function App() {

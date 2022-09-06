@@ -1,9 +1,9 @@
 import React from "react";
-import "./styles/style.css";
+import "../styles/style.css";
 // import "./styles/font-icons.css";
 // import "./styles/plugins.css";
 // import "./styles/responsive.css";
-import bg from "../assets/4.png";
+import bg from "../../assets/4.png";
 
 
 export default function Login(){
