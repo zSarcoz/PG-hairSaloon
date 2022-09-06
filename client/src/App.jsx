@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import ErrorNotFound from "./components/ErrorNotFound";
 import Register from "./components/Forms/Register";
+import RegisterBr from "./components/Forms/RegisterBr";
 import Login from "./components/Forms/Login.jsx";
 
 
@@ -10,7 +11,10 @@ function App() {
     <>
       <BrowserRouter>
         <div className="App">
-          <Switch>
+          <Switch>  
+            <Route exact path="/register/employee">
+              <RegisterBr />
+            </Route>
             <Route exact path="/register">
               <Register />
             </Route>

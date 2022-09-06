@@ -25,10 +25,10 @@ export default function Login(){
                 <div className="col-lg-6">
                     <div className="account-login-inner">
                         <form action="#" className="ltn__form-box contact-form-box">
-                            <input type="text" name="email" placeholder="Email*"/>
-                            <input type="password" name="password" placeholder="Password*"/>
+                            {/* <input type="text" name="email" placeholder="Email*"/> */}
+                            <input type="number" name="password" placeholder="Cédula de Indentidad"/>
                             <div className="btn-wrapper mt-0">
-                                <button className="theme-btn-1 btn btn-block" type="submit">SIGN IN</button>
+                                <button className="theme-btn-1 btn btn-block" type="submit">INGRESA</button>
                             </div>
                             <div className="go-to-btn mt-20">
                                 <a href="#"><small>FORGOTTEN YOUR PASSWORD?</small></a>

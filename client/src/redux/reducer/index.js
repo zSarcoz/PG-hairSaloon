@@ -5,6 +5,7 @@ const initialSatate = {
   // genres: [],
   // genresGet: [],
   users: [],
+  barbers: [],
   error: "",
 };
 
@@ -25,6 +26,17 @@ export default function rootReducer(state = initialSatate, action) {
     case "REGISTER_USER": {
       return {
         ...state,
+      }
+    }
+    case "GET_BARBERS": {
+      return {
+        ...state,
+        barbers: action.payload
+      }
+    }
+    case "REGISTER_BARBER": {
+      return {
+        ...state
       }
     }
     default:

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import Input from "./Input.jsx";
 import { registerUser } from "../../redux/actions";
 // import { Container, Row, Col } from "react-bootstrap";
 // import "./styles/style.css";
@@ -29,9 +28,9 @@ export default function Register() {
     name: "",
     lastName: "",
     email: "",
-    phone: 0,
+    phone: "",
     direction: "",
-    cedula: 0,
+    cedula: "",
   });
   const { name, lastName, email, phone, direction, cedula } = user;
 
@@ -76,7 +75,7 @@ export default function Register() {
         direction: "",
         cedula: 0,
       });
-      history.push("/home");
+      navigate.push("/home");
 
       // else if(name.length === 0 ||
       //   // image.length === 0 ||
@@ -87,7 +86,7 @@ export default function Register() {
       //     alert("Please fill all the fields");
       // }
     } catch (error) {
-      console.log("Error to Create a User");
+      console.log("Error to Create a User", error);
     }
   };
 
@@ -224,6 +223,9 @@ export default function Register() {
                   </p> */}
                     <div className="go-to-btn mt-50">
                       <Link to="/login">Already have an account? Log in</Link>
+                    </div>
+                    <div className="go-to-btn mt-50">
+                      <Link to="/register/employee">Eres parte de nuestro personal? Regisgrate aqui</Link>
                     </div>
                   </div>
                 </div>
