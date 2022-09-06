@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import ErrorNotFound from "./components/ErrorNotFound";
 import Register from "./components/Forms/Register";
+import Login from "./components/Forms/Login.jsx";
 
 
 function App() {
@@ -12,6 +13,9 @@ function App() {
           <Switch>
             <Route exact path="/register">
               <Register />
+            </Route>
+            <Route exact path="/login">
+              <Login />
             </Route>
             {/* <Route component={ErrorNotFound} /> */}
           </Switch>

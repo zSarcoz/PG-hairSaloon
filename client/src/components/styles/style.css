@@ -11869,7 +11869,10 @@ input.cart-plus-minus-box {
 --------------------------------------- */
 .btn-wrapper {
   display: block;
-  margin-top: 30px; }
+  margin-top: 30px;
+  /* background-color: var(--ltn__secondary-color); */
+  /* color: white; */
+ }
 
 .btn {
   border-radius: 0;
@@ -11887,7 +11890,12 @@ input.cart-plus-minus-box {
   z-index: 1;
   margin-right: 15px; }
   .btn:last-child {
-    margin-right: 0; }
+    margin-right: 0;
+  background-color: var(--ltn__secondary-color);
+  color: var(--white); }
+  .btn:last-child:hover{
+    color: white;
+  }
 
 .theme-btn-1 {
   background-color: var(--ltn__secondary-color);
