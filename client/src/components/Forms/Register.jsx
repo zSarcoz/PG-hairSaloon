@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import Input from "./Input.jsx";
 import { registerUser } from "../../redux/actions";
 // import { Container, Row, Col } from "react-bootstrap";
 // import "./styles/style.css";
