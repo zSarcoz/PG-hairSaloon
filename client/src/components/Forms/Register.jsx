@@ -28,11 +28,11 @@ export default function Register() {
     name: "",
     lastName: "",
     email: "",
-    mobile_number: 0,
+    phone: 0,
     direction: "",
     cedula: 0,
   });
-  const { name, lastName, email, mobile_number, direction, cedula } = user;
+  const { name, lastName, email, phone, direction, cedula } = user;
 
   // const expression = {
   //   name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
@@ -71,7 +71,7 @@ export default function Register() {
         name: "",
         lastName: "",
         email: "",
-        mobile_number: 0,
+        phone: 0,
         direction: "",
         cedula: 0,
       });
@@ -178,8 +178,8 @@ export default function Register() {
                     <input
                       type="number"
                       placeholder="Teléfono"
-                      value={mobile_number}
-                      name="mobile_number"
+                      value={phone}
+                      name="phone"
                       onChange={(e) => handleOnChange(e)}
                     />
                     {/* <input
