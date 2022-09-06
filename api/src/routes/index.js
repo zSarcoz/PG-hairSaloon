@@ -7,8 +7,11 @@ const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 const user = require('./userController');
+const barber = require('./barberController');
 
 router.use('/user', user)
+
+router.use('/barber', barber)
 
 module.exports = router;
  
