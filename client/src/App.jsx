@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Register from "./components/Forms/Register";
 import RegisterBr from "./components/Forms/RegisterBr";
 import Login from "./components/Forms/Login.jsx";
+import Home from "./components/Home/Home.jsx";
 
 
 function App() {
@@ -12,6 +13,9 @@ function App() {
       <BrowserRouter>
         <div className="App">
           <Switch>  
+            <Route exact path="/">
+              <Home />
+            </Route>
             <Route exact path="/register/employee">
               <RegisterBr />
             </Route>

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { registerUser } from "../../redux/actions";
+import { registerUser, getUsers, currentUser } from "../../redux/actions";
 // import { Container, Row, Col } from "react-bootstrap";
 // import "./styles/style.css";
 import "../styles/style.css";
@@ -16,21 +16,14 @@ export default function Register() {
   const error = useSelector((state) => state.error);
   const navigate = useHistory();
   const dispatch = useDispatch();
-  // const [name, setName] = useState({ value: "", valid: null });
-  // const [lastName, setLastName] = useState({ value: "", valid: null });
-  // const [phone, setPhone] = useState({ value: "", valid: null });
-  // const [email, setEmail] = useState({ value: "", valid: null });
-  // const [cedula, setCedula] = useState({ value: "", valid: null });
-  // const [direction, setDirection] = useState({ value: "", valid: null });
-  // const [password, setPassword] = useState({ value: "", valid: null });
-  // const [password2, setPassword2] = useState({ value: "", valid: null });
+
   const [user, setUser] = useState({
     name: "",
     lastName: "",
     email: "",
     phone: "",
     direction: "",
-    cedula: "",
+    cedula: 0,
   });
   const { name, lastName, email, phone, direction, cedula } = user;
 
@@ -52,7 +45,7 @@ export default function Register() {
       [e.target.name]: e.target.value,
     });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     console.log(user);
     try {
@@ -66,7 +59,8 @@ export default function Register() {
       //   rating > 0 && rating < 6 &&
       //   release_date.length !== 0
       // ) {
-      dispatch(registerUser(user));
+      await dispatch(registerUser(user));
+      await dispatch(currentUser(user.cedula))
       setUser({
         name: "",
         lastName: "",
@@ -75,7 +69,7 @@ export default function Register() {
         direction: "",
         cedula: 0,
       });
-      navigate.push("/home");
+      navigate.push("/");
 
       // else if(name.length === 0 ||
       //   // image.length === 0 ||

@@ -11,7 +11,7 @@ const router = Router();
 //   const hashPassword = await bcrypt.hash(origialPassword, saltRounds);
 //   console.log(hashPassword);
 //   const isMatch = await bcrypt.compare(password, hashPassword);
-//   console.log(isMatch);
+//   console.log(isMatch); 
 //   return hashPassword
 // };
 router.get("/", async (req, res, next) => {

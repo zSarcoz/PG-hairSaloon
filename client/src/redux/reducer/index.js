@@ -5,6 +5,7 @@ const initialSatate = {
   // genres: [],
   // genresGet: [],
   users: [],
+  currentUser: [],
   barbers: [],
   error: "",
 };
@@ -14,8 +15,23 @@ export default function rootReducer(state = initialSatate, action) {
     case "GET_USERS": {
       return {
         ...state,
-        users: action.payload
-      }
+        users: action.payload,
+      };
+    }
+    case "CURRENT_USER":
+      console.log(state.users);
+      let arr = state.users.filter((user) => user.cedula === Number(action.payload));
+      console.log("current user action payload", action.payload);
+      console.log("current user arr", arr);
+      return {
+        ...state,
+        currentUser: arr,
+      };
+    case "REGISTER_USER": {
+      return {
+        ...state,
+        users: [...state.users, action.payload],
+      };
     }
     case "ERROR_USER": {
       return {
@@ -23,21 +39,17 @@ export default function rootReducer(state = initialSatate, action) {
         error: action.payload,
       };
     }
-    case "REGISTER_USER": {
-      return {
-        ...state,
-      }
-    }
+
     case "GET_BARBERS": {
       return {
         ...state,
-        barbers: action.payload
-      }
+        barbers: action.payload,
+      };
     }
     case "REGISTER_BARBER": {
       return {
-        ...state
-      }
+        ...state,
+      };
     }
     default:
       return state;

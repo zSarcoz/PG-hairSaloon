@@ -12,7 +12,7 @@ module.exports = (sequelize) => {
     },
     price:{
         type:DataTypes.FLOAT,
-        allowNull:false,
+        allowNull:false, 
     },
     date:{
         type: DataTypes.DATE,
