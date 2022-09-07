@@ -26,6 +26,23 @@ router.get("/", async (req, res, next) => {
     next(error.message);
   }
 });
+// router.get("/", async (req, res) => {
+//   const { cedula } = req.query;
+//   let allUsers = await User.findAll();
+//   console.log(allUsers)
+//   if (cedula) {
+//     console.log(cedula)
+//     let user = allUsers.filter((user1) =>
+//       user1.cedula === cedula
+//     );
+//     console.log(user)
+//     user.length
+//       ? res.status(200).send(user)
+//       : res.status(404).json("User not found");
+//   } else {
+//     res.status(200).json(allUsers);
+//   }
+// });
 
 router.post("/", async (req, res) => {
   const { name, lastName, email, cedula, direction,/* password,*/ phone } =
