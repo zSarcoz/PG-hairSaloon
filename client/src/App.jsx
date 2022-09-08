@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Register from "./components/Forms/Register";
 import RegisterBr from "./components/Forms/RegisterBr";
 import Login from "./components/Forms/Login.jsx";
+import Timer from "./components/Timer.jsx";
 
 
 function App() {
@@ -14,6 +15,9 @@ function App() {
           <Switch>  
             <Route exact path="/register/employee">
               <RegisterBr />
+            </Route>
+            <Route exact path="/timer">
+              <Timer />
             </Route>
             <Route exact path="/register">
               <Register />
