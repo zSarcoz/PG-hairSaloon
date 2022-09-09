@@ -90,7 +90,7 @@ export default function Register() {
   const dispatch = useDispatch();
   const [errors, setErrors] = useState({});
 
-  const [user, setUser] = useState({
+  const [user, setUser] = useState({ 
     name: "",
     lastName: "",
     email: "",
