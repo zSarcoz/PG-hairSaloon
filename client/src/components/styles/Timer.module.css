@@ -1,38 +1,40 @@
-.timer {
-  width: 100vw;
-  height: 100vh;
-  margin-left: -201px;
-  margin-top: -32px;
-  background-color: skyblue;
-  display: flex;
-  /* align-items: center; */
-  justify-content: center;
+.Timers {
+  width: 180px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.container {
-  padding-top: 100px;
-}
-
-.timer_container {
-  background-color: #fff;
-  width: 20vw;
-  padding: 1rem 6rem;
-  border-radius: 1rem;
-  box-shadow: 0 1rem 1rem -0.7rem rgb(0, 0, 0, 0.4);
-}
-.stop,
-.restart {
-  margin-top: 20px;
+#display {
   margin-bottom: 20px;
+}
+#display span {
+  font-size: 36px;
+}
+#buttons button:nth-child(2) {
+  margin-left: 8px;
+}
+
+.button {
+  font-size: 16px;
+  background-color: rgb(217, 60, 35);
   color: #fff;
-  font-size: 18px;
-  background-color: skyblue;
-  width: 130px;
-  height: 50px;
+  border-radius: 8px;
   border: none;
-  border-radius: 15px;
+  padding: 6px 12px;
+  margin-top: 5px;
+  transition: 0.3s ease;
   cursor: pointer;
 }
-.stop {
-  margin-left: 15px;
+
+.button + .button{
+  margin-left: 20px;
+}
+.button:hover {
+  background-color: rgb(97, 21, 9);
+}
+.button:active {
+  background-color: rgb(130, 35, 21);
+}
+.button:focus {
+  outline: 0;
 }
