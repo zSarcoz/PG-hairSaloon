@@ -38,6 +38,10 @@ module.exports = (sequelize) => {
     permissions:{
       type: DataTypes.BOOLEAN,
       defaultValue: true
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   },{
       timestamps:false,

@@ -12,10 +12,83 @@ import "../styles/responsive.css";
 // import bg from "../assets/4.png";
 import bg from "../../assets/4.png";
 
+function validation({
+  name,
+  hp,
+  attack,
+  defense,
+  speed,
+  weight,
+  height,
+  type,
+}) {
+  const errors = {};
+
+  //validating name
+  if (!name) {
+    errors.name = "Enter Name ❌";
+  } else if (/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(name)) {
+    errors.name = "Characters are not allowed ❌";
+  }
+
+  //validating hp
+  if (!hp || hp < 10 || hp > 200) {
+    if (!hp) errors.hp = "Enter hp ❌";
+    else if (hp <= 10) errors.hp = "hp must be higher than 10 ❌";
+    else if (hp >= 200) errors.hp = "hp must be lower than 200 ❌";
+  }
+
+  //validating attack
+  if (!attack || attack < 10 || attack > 200) {
+    if (!attack) errors.hp = "Enter attack ❌";
+    else if (attack <= 10) errors.attack = "attack must be higher than 10 ❌";
+    else if (attack >= 200) errors.attack = "attack must be lower than 200 ❌";
+  }
+
+  //validating defense
+  if (!defense || defense < 10 || defense > 200) {
+    if (!defense) errors.defense = "Enter defense ❌";
+    else if (defense <= 10)
+      errors.defense = "defense must be higher than 10 ❌";
+    else if (defense >= 200)
+      errors.defense = "defense must be lower than 200 ❌";
+  }
+
+  //validating Speed
+  if (!speed || speed < 10 || speed > 200) {
+    if (!speed) errors.speed = "Enter speed ❌";
+    else if (speed <= 10) errors.speed = "speed must be higher than 10 ❌";
+    else if (speed >= 200) errors.speed = "speed must be lower than 200 ❌";
+  }
+
+  //validating weight
+  if (!weight || weight < 10 || weight > 200) {
+    if (!weight) errors.weight = "Enter weight ❌";
+    else if (weight <= 10) errors.weight = "weight must be higher than 10 ❌";
+    else if (weight >= 200) errors.weight = "weight must be lower than 200 ❌";
+  }
+
+  //validating height
+  if (!height || height < 10 || height > 200) {
+    if (!height) errors.height = "Enter height ❌";
+    else if (height <= 10) errors.height = "height must be higher than 10 ❌";
+    else if (height >= 200) errors.height = "height must be lower than 200 ❌";
+  }
+
+  //validating types
+  if (!type.length) {
+    errors.type = "Must choose a type ❌";
+  } else if (type.length > 2) {
+    errors.type = "You can only select two types ❌";
+  }
+  return errors;
+}
+
 export default function Register() {
   const error = useSelector((state) => state.error);
   const navigate = useHistory();
   const dispatch = useDispatch();
+  const [errors, setErrors] = useState({});
 
   const [user, setUser] = useState({
     name: "",
@@ -23,7 +96,7 @@ export default function Register() {
     email: "",
     phone: "",
     direction: "",
-    cedula: 0,
+    cedula: "",
   });
   const { name, lastName, email, phone, direction, cedula } = user;
 
@@ -44,41 +117,46 @@ export default function Register() {
       ...user,
       [e.target.name]: e.target.value,
     });
+    setErrors(
+      validation({
+        ...user,
+        [e.target.name]: e.target.value,
+      })
+    );
   };
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(user);
     try {
-      // if (
-      //   name.length !== 0 &&
-      //   // image.length !== 0 &&
-      //   description.length !== 0 &&
-      //   genres.length !== 0 &&
-      //   platforms.length !== 0 &&
-      //   rating.length !== 0 &&
-      //   rating > 0 && rating < 6 &&
-      //   release_date.length !== 0
-      // ) {
-      await dispatch(registerUser(user));
-      await dispatch(currentUser(user.cedula))
-      setUser({
-        name: "",
-        lastName: "",
-        email: "",
-        phone: 0,
-        direction: "",
-        cedula: 0,
-      });
-      navigate.push("/");
-
-      // else if(name.length === 0 ||
-      //   // image.length === 0 ||
-      //   description.length === 0 ||
-      //   genres.length === 0 ||
-      //   platforms.length === 0 ||
-      //   release_date.length === 0){
-      //     alert("Please fill all the fields");
-      // }
+      if (
+        name.length !== 0 &&
+        lastName.length !== 0 &&
+        email.length !== 0 &&
+        phone.length !== 0 &&
+        cedula.length !== 0 &&
+        direction.length !== 0
+      ) {
+        await dispatch(registerUser(user));
+        await dispatch(currentUser(user.cedula));
+        setUser({
+          name: "",
+          lastName: "",
+          email: "",
+          phone: 0,
+          direction: "",
+          cedula: 0,
+        });
+        navigate.push("/");
+      } else if (
+        name.length !== 0 &&
+        lastName.length !== 0 &&
+        email.length !== 0 &&
+        phone.length !== 0 &&
+        cedula.length !== 0 &&
+        direction.length !== 0
+      ) {
+        alert("Please fill all the fields");
+      }
     } catch (error) {
       console.log("Error to Create a User", error);
     }
@@ -139,10 +217,11 @@ export default function Register() {
                       placeholder="Name"
                       value={name}
                       name="name"
+                      pattern="^[a-zA-ZÀ-ÿ\s]{1,40}$"
                       onChange={(e) => handleOnChange(e)}
                     />
                     <input
-                      type="text"
+                      type="text" 
                       placeholder="Lastame"
                       value={lastName}
                       name="lastName"
@@ -219,7 +298,9 @@ export default function Register() {
                       <Link to="/login">Already have an account? Log in</Link>
                     </div>
                     <div className="go-to-btn mt-50">
-                      <Link to="/register/employee">Eres parte de nuestro personal? Regisgrate aqui</Link>
+                      <Link to="/register/employee">
+                        Eres parte de nuestro personal? Regisgrate aqui
+                      </Link>
                     </div>
                   </div>
                 </div>

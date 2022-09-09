@@ -17,8 +17,19 @@ export default function RegisterBr() {
     phone: "",
     cedula: "",
     checkIn: "",
+    password: "",
+    confirmpassword: "",
   });
-  const { name, lastName, email, phone, cedula, checkIn } = employee;
+  const {
+    name,
+    lastName,
+    email,
+    phone,
+    cedula,
+    checkIn,
+    password,
+    confirmpassword,
+  } = employee;
   const handleOnChange = (e) => {
     // e.preventDefault()
     setEmployee({
@@ -30,35 +41,39 @@ export default function RegisterBr() {
     e.preventDefault();
     console.log(employee);
     try {
-      // if (
-      //   name.length !== 0 &&
-      //   // image.length !== 0 &&
-      //   description.length !== 0 &&
-      //   genres.length !== 0 &&
-      //   platforms.length !== 0 &&
-      //   rating.length !== 0 &&
-      //   rating > 0 && rating < 6 &&
-      //   release_date.length !== 0
-      // ) {
-      dispatch(registerBarber(employee));
-      setEmployee({
-        name: "",
-        lastName: "",
-        email: "",
-        phone: 0,
-        checkIn: 0,
-        cedula: 0,
-      });
-      navigate.push("/home");
-
-      // else if(name.length === 0 ||
-      //   // image.length === 0 ||
-      //   description.length === 0 ||
-      //   genres.length === 0 ||
-      //   platforms.length === 0 ||
-      //   release_date.length === 0){
-      //     alert("Please fill all the fields");
-      // }
+      if (
+        name.length !== 0 &&
+        lastName.length !== 0 &&
+        email.length !== 0 &&
+        phone.length !== 0 &&
+        cedula.length !== 0 &&
+        checkIn.length !== 0 &&
+        password.length !== 0 &&
+        confirmpassword === password
+      ) {
+        dispatch(registerBarber(employee));
+        setEmployee({
+          name: "",
+          lastName: "",
+          email: "",
+          phone: 0,
+          checkIn: 0,
+          cedula: 0,
+          password: "",
+        });
+        navigate.push("/home");
+      } else if (
+        name.length === 0 ||
+        lastName.length === 0 ||
+        email.length === 0 ||
+        phone.length === 0 ||
+        cedula.length === 0 ||
+        password.length === 0 ||
+        checkIn.length === 0 ||
+        confirmpassword.length === 0
+      ) {
+        alert("Please fill all the fields");
+      }
     } catch (error) {
       console.log("Error to Create a Barber", error);
     }
@@ -153,6 +168,20 @@ export default function RegisterBr() {
                         placeholder="Teléfono"
                         value={phone}
                         name="phone"
+                        onChange={(e) => handleOnChange(e)}
+                      />
+                      <input
+                        type="password"
+                        placeholder="Password*"
+                        value={password}
+                        name="password"
+                        onChange={(e) => handleOnChange(e)}
+                      />
+                      <input
+                        type="password"
+                        placeholder="Confirm Password*"
+                        value={confirmpassword}
+                        name="confirmpassword"
                         onChange={(e) => handleOnChange(e)}
                       />
                       <div className="btn-wrapper">

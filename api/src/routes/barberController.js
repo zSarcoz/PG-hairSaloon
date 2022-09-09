@@ -1,19 +1,20 @@
 const { Barber } = require("../db.js");
 const { Router } = require("express");
-// const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt");
 const router = Router();
 
-// const hash = async (password) => {
-//   console.log(password);
-//   const saltRounds = 10;
-//   const origialPassword = password;
+const hash = async (password) => {
+  console.log(password);
+  const saltRounds = 10;
+  const origialPassword = password;
 
-//   const hashPassword = await bcrypt.hash(origialPassword, saltRounds);
-//   console.log(hashPassword);
-//   const isMatch = await bcrypt.compare(password, hashPassword);
-//   console.log(isMatch); 
-//   return hashPassword
-// };
+  const hashPassword = await bcrypt.hash(origialPassword, saltRounds);
+  console.log(hashPassword);
+  const isMatch = await bcrypt.compare(password, hashPassword);
+  console.log(isMatch); 
+  return hashPassword
+};
+
 router.get("/", async (req, res, next) => {
   try {
     let allBarbers = await Barber.findAll();
@@ -28,20 +29,19 @@ router.get("/", async (req, res, next) => {
 });
 
 router.post("/", async (req, res) => {
-  const { name, lastName, email, cedula,/* password,*/ phone, checkIn } =
+  const { name, lastName, email, cedula, password, phone, checkIn } =
     req.body;
-  // const hashFun = await hash(password);
+  const hashFun = await hash(password);
   try {
     let barberCreated = await Barber.create({
       name: name,
       lastName: lastName,
       email: email,
       // password: password,
-      // password: hashFun,
+      password: hashFun,
       cedula: cedula,
       phone: phone,
       checkIn: checkIn
-
     });
     return res.status(201).json(barberCreated);
   } catch (error) {
