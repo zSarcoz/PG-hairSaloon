@@ -87,7 +87,7 @@ export default function Timer(){
                     <h1>Timer</h1>
                     <h1>{minutes<10?"0"+minutes:minutes}:{seconds<10?"0"+seconds:seconds}</h1>
                     <button className={s.restart} onClick={restart}>Restart</button>
-                    <button className={s.stop} onClick={stop}>Stop</button>
+                    <button className={s.stop} onClick={stop}>Stop</button> 
                     {/* <button className={s.start} onClick={start}>Start</button> */}
                 </div>
             </div>
