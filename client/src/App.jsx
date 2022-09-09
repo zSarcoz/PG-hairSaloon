@@ -6,6 +6,7 @@ import RegisterBr from "./components/Forms/RegisterBr";
 import Login from "./components/Forms/Login.jsx";
 import Home from "./components/Home/Home.jsx";
 import Timer from "./components/Timer.jsx";
+import Barbers from "./components/Home/Barbers.jsx";
 
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
             </Route>
             <Route exact path="/timer">
               <Timer />
+            </Route>
+            <Route exact path="/barbers">
+              <Barbers />
             </Route>
             <Route exact path="/register">
               <Register />

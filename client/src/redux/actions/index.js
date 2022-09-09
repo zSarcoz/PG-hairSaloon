@@ -59,7 +59,8 @@ export function registerUser(payload) {
 export const getBarbers = () => {
   return async function (dispatch) {
     try {
-      const response = await axios.get("/barber");
+      const response = await axios.get("http://localhost:3001/barber");
+      console.log(response)
       return dispatch({
         type: "GET_BARBERS",
         payload: response.data,
