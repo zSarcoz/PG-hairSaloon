@@ -13,78 +13,6 @@ import "../styles/responsive.css";
 // import bg from "../assets/4.png";
 import bg from "../../assets/4.png";
 
-// function validation({
-//   name,
-//   hp,
-//   attack,
-//   defense,
-//   speed,
-//   weight,
-//   height,
-//   type,
-// }) {
-//   const errors = {};
-
-//   //validating name
-//   if (!name) {
-//     errors.name = "Enter Name ❌";
-//   } else if (/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(name)) {
-//     errors.name = "Characters are not allowed ❌";
-//   }
-
-//   //validating hp
-//   if (!hp || hp < 10 || hp > 200) {
-//     if (!hp) errors.hp = "Enter hp ❌";
-//     else if (hp <= 10) errors.hp = "hp must be higher than 10 ❌";
-//     else if (hp >= 200) errors.hp = "hp must be lower than 200 ❌";
-//   }
-
-//   //validating attack
-//   if (!attack || attack < 10 || attack > 200) {
-//     if (!attack) errors.hp = "Enter attack ❌";
-//     else if (attack <= 10) errors.attack = "attack must be higher than 10 ❌";
-//     else if (attack >= 200) errors.attack = "attack must be lower than 200 ❌";
-//   }
-
-//   //validating defense
-//   if (!defense || defense < 10 || defense > 200) {
-//     if (!defense) errors.defense = "Enter defense ❌";
-//     else if (defense <= 10)
-//       errors.defense = "defense must be higher than 10 ❌";
-//     else if (defense >= 200)
-//       errors.defense = "defense must be lower than 200 ❌";
-//   }
-
-//   //validating Speed
-//   if (!speed || speed < 10 || speed > 200) {
-//     if (!speed) errors.speed = "Enter speed ❌";
-//     else if (speed <= 10) errors.speed = "speed must be higher than 10 ❌";
-//     else if (speed >= 200) errors.speed = "speed must be lower than 200 ❌";
-//   }
-
-//   //validating weight
-//   if (!weight || weight < 10 || weight > 200) {
-//     if (!weight) errors.weight = "Enter weight ❌";
-//     else if (weight <= 10) errors.weight = "weight must be higher than 10 ❌";
-//     else if (weight >= 200) errors.weight = "weight must be lower than 200 ❌";
-//   }
-
-//   //validating height
-//   if (!height || height < 10 || height > 200) {
-//     if (!height) errors.height = "Enter height ❌";
-//     else if (height <= 10) errors.height = "height must be higher than 10 ❌";
-//     else if (height >= 200) errors.height = "height must be lower than 200 ❌";
-//   }
-
-//   //validating types
-//   if (!type.length) {
-//     errors.type = "Must choose a type ❌";
-//   } else if (type.length > 2) {
-//     errors.type = "You can only select two types ❌";
-//   }
-//   return errors;
-// }
-
 export default function Register() {
   const error = useSelector((state) => state.error);
   const navigate = useHistory();
@@ -97,17 +25,12 @@ export default function Register() {
   const [email, setEmail] = useState({ value: "", valid: null });
   const [cedula, setCedula] = useState({ value: "", valid: null });
   const [direction, setDirection] = useState({ value: "", valid: null });
-  console.log(name.value);
-
-  // const [user, setUser] = useState({
-  //   name1: name,
-  //   lastName1: lastName,
-  //   email1: email,
-  //   phone1: phone,
-  //   direction1: direction,
-  //   cedula1: cedula,
-  // });
-  // const { name1, lastName1, email1, phone1, direction1, cedula1 } = user;
+  console.log(name);
+  console.log(lastName);
+  console.log(phone);
+  console.log(email);
+  console.log(cedula);
+  console.log(direction)
   const user = {
     name: name.value,
     lastName: lastName.value,
@@ -116,7 +39,6 @@ export default function Register() {
     direction: direction.value,
     cedula: cedula.value,
   };
-  // const { name, lastName, email, phone, direction, cedula } = user;
   console.log("name1 should be: ", user.name);
 
   const expression = {
@@ -124,97 +46,32 @@ export default function Register() {
     lastName: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
     email: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, //eslint-disable-line
     phone: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, //eslint-disable-line
+    cedula: /^[\+]?[(]?[0-9]{1}[)]?[-\s\.]?[0-9]{2}[-\s\.]?[0-9]{4,6}$/,
+    direction: /^[a-zA-ZÀ-ÿ\s]{1,100}$/
     // password:
     //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
     // Minimum eight and maximum 10 characters, at least one uppercase letter, one lowercase letter, one number and one special character (*),
   };
 
-  // const handleOnChange = (e) => {
-  //   // e.preventDefault();
 
-  //   setUser({
-  //     ...user,
-  //       [e.target.name]: e.target.value,
-  //     }) 
-  // };
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   console.log(user);
-  //   try {
-  //     if (
-  //       name.length !== 0 &&
-  //       lastName.length !== 0 &&
-  //       email.length !== 0 &&
-  //       phone.length !== 0 &&
-  //       cedula.length !== 0 &&
-  //       direction.length !== 0
-  //     ) {
-  //       await dispatch(registerUser(user));
-  //       await dispatch(currentUser(user.cedula));
-  //       setUser({
-  //         name: "",
-  //         lastName: "",
-  //         email: "",
-  //         phone: 0,
-  //         direction: "",
-  //         cedula: 0,
-  //       });
-  //       // navigate.push("/");
-  //     } else if (
-  //       name.length !== 0 &&
-  //       lastName.length !== 0 &&
-  //       email.length !== 0 &&
-  //       phone.length !== 0 &&
-  //       cedula.length !== 0 &&
-  //       direction.length !== 0
-  //     ) {
-  //       alert("Please fill all the fields");
-  //     }
-  //   } catch (error) {
-  //     console.log("Error to Create a User", error);
-  //   }
-  // };
   async function handleSubmit(e) {
     e.preventDefault();
     // setLoading(true);
 
     if (
-      name.valid === "true"
-      // direction.valid === 'true' &&
-      // lastName.valid === "true" &&
-      // email.valid === "true" &&
-      // phone.valid === "true"
+      name.valid === "true" &&
+      direction.valid === 'true' &&
+      lastName.valid === "true" &&
+      email.valid === "true" &&
+      cedula.valid === "true" &&
+      phone.valid === "true"
       // password.valid === 'true' &&
       // password2.value === password.value
     ) {
-      // let type = await dispatch(registerUser(
-      //   e.target.name.value,
-      //   e.target.lastName.value,
-      //   e.target.email.value,
-      //   e.target.cedula.value,
-      //   e.target.phone.value,
-      //   e.target.direction.value,
-      //   // `${e.target.name.value} ${e.target.lastName.value}`
-      // ));
-      // let type = e.target.name.value
-      // console.log(type)
-      // console.log(user.cedula.value)
       await dispatch(registerUser(user));
       await dispatch(currentUser(cedula.value));
 
-      // if (typeof type == "string") {
-      //   alert(type);
-      //   // Swal.fire({
-      //   //   icon: "error",
-      //   //   title: "Oops...",
-      //   //   text: "Something went wrong!",
-      //   //   confirmButtonColor: "#10408F",
-      //   // });
-      //   // setLoading(false);
-      // } else {
-      //   navigate.push("/");
-      //   //window.location.reload();
-      // }
+        navigate.push("/");
     } else {
       // Swal.fire({
       //   icon: "question",
@@ -223,7 +80,6 @@ export default function Register() {
       //   confirmButtonColor: "#10408F",
       // });
       alert("fill the blanks");
-      // setLoading(false);
     }
   }
 
@@ -338,70 +194,6 @@ export default function Register() {
                       error="Please enter a valid direction"
                       regularExpression={expression.direction}
                     />
-                    {/* <input
-                      type="text"
-                      placeholder="Name"
-                      value={name}
-                      name="name"
-                      onChange={(e) => handleOnChange(e)}
-                    />
-                    <input
-                      type="text" 
-                      placeholder="Lastame"
-                      value={lastName}
-                      name="lastName"
-                      onChange={(e) => handleOnChange(e)}
-                    />
-                    <input
-                      type="text"
-                      placeholder="Email*"
-                      value={email}
-                      name="email"
-                      onChange={(e) => handleOnChange(e)}
-                    />
-                    <input
-                      type="number"
-                      placeholder="Cédula"
-                      value={cedula}
-                      name="cedula"
-                      onChange={(e) => handleOnChange(e)}
-                    />
-                    <input
-                      type="text"
-                      placeholder="Dirección"
-                      value={direction}
-                      name="direction"
-                      onChange={(e) => handleOnChange(e)}
-                    />
-                    <input
-                      type="number"
-                      placeholder="Teléfono"
-                      value={phone}
-                      name="phone"
-                      onChange={(e) => handleOnChange(e)}
-                    /> */}
-                    {/* <input
-                      type="password"
-                      name="password"
-                      placeholder="Password*"
-                    />
-                    <input
-                      type="password"
-                      name="confirmpassword"
-                      placeholder="Confirm Password*"
-                    /> */}
-
-                    {/* <label className="checkbox-inline">
-                      <input type="checkbox" value="" />I consent to Herboil
-                      processing my personal data in order to send personalized
-                      marketing material in accordance with the consent form and
-                      the privacy policy.
-                    </label>
-                    <label className="checkbox-inline">
-                      <input type="checkbox" value="" />
-                      By clicking "create account", I consent to the privacy
-                      policy.
-                    </label> */}
                     <div className="btn-wrapper">
                       <button
                         className="theme-btn-1 btn reverse-color btn-block"

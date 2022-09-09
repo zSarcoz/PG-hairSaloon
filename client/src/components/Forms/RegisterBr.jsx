@@ -3,6 +3,7 @@ import { registerBarber } from "../../redux/actions";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import Input from "./Input";
 import "../styles/style.css";
 import "../styles/plugins.css";
 import "../styles/responsive.css";
@@ -10,74 +11,142 @@ import "../styles/responsive.css";
 export default function RegisterBr() {
   const dispatch = useDispatch();
   const navigate = useHistory();
-  const [employee, setEmployee] = useState({
-    name: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    cedula: "",
-    checkIn: "",
-    password: "",
-    confirmpassword: "",
-  });
-  const {
-    name,
-    lastName,
-    email,
-    phone,
-    cedula,
-    checkIn,
-    password,
-    confirmpassword,
-  } = employee;
-  const handleOnChange = (e) => {
-    // e.preventDefault()
-    setEmployee({
-      ...employee,
-      [e.target.name]: e.target.value,
-    });
+
+  const [name, setName] = useState({ value: "", valid: null });
+  const [lastName, setLastName] = useState({ value: "", valid: null });
+  const [phone, setPhone] = useState({ value: "", valid: null });
+  const [email, setEmail] = useState({ value: "", valid: null });
+  const [cedula, setCedula] = useState({ value: "", valid: "true" });
+  const [checkIn, setCheckIn] = useState({ value: "", valid: "true" });
+  const [password, setPassword] = useState({ value: "", valid: null });
+  const [password2, setPassword2] = useState({ value: "", valid: null });
+  console.log(name);
+  console.log(lastName);
+  console.log(phone);
+  console.log(email);
+  console.log(cedula);
+  console.log(checkIn);
+  console.log(password);
+  console.log(password2);
+
+
+  const user = {
+    name: name.value,
+    lastName: lastName.value,
+    email: email.value,
+    phone: phone.value,
+    password: password.value,
+    checkIn: checkIn.value,
+    cedula: cedula.value,
   };
-  const handleSubmit = (e) => {
+  const expression = {
+    name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
+    lastName: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
+    email: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, //eslint-disable-line
+    phone: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, //eslint-disable-line
+    // cedula: /^[\+]?[(]?[0-9]{1}[)]?[-\s\.]?[0-9]{2}[-\s\.]?[0-9]{4,6}$/,
+    // direction: /^[a-zA-ZÀ-ÿ\s]{1,100}$/
+    // checkIn: /s+(?:0[1-9]|1[012])[-/.](?:0[1-9]|[12][0-9]|3[01])[-/.](?:19\d{2}|20[01][0-9]|2020)/,
+    password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+    // Minimum eight and maximum 10 characters, at least one uppercase letter, one lowercase letter, one number and one special character (*),
+  };
+  async function handleSubmit(e) {
     e.preventDefault();
-    console.log(employee);
-    try {
-      if (
-        name.length !== 0 &&
-        lastName.length !== 0 &&
-        email.length !== 0 &&
-        phone.length !== 0 &&
-        cedula.length !== 0 &&
-        checkIn.length !== 0 &&
-        password.length !== 0 &&
-        confirmpassword === password
-      ) {
-        dispatch(registerBarber(employee));
-        setEmployee({
-          name: "",
-          lastName: "",
-          email: "",
-          phone: 0,
-          checkIn: 0,
-          cedula: 0,
-          password: "",
-        });
-        navigate.push("/home");
-      } else if (
-        name.length === 0 ||
-        lastName.length === 0 ||
-        email.length === 0 ||
-        phone.length === 0 ||
-        cedula.length === 0 ||
-        password.length === 0 ||
-        checkIn.length === 0 ||
-        confirmpassword.length === 0
-      ) {
-        alert("Please fill all the fields");
-      }
-    } catch (error) {
-      console.log("Error to Create a Barber", error);
+    // setLoading(true);
+
+    if (
+      name.valid === "true" &&
+      lastName.valid === "true" &&
+      email.valid === "true" &&
+      cedula.valid === "true" &&
+      phone.valid === "true" &&
+      // checkIn.valid === "true" &&
+      password.valid === "true" &&
+      // password2.value === "true" &&
+      password2.value === password.value
+    ) {
+      await dispatch(registerBarber(user));
+      // await dispatch(currentUser(cedula.value));
+
+      navigate.push("/");
+    } else {
+      // Swal.fire({
+      //   icon: "question",
+      //   title: "Oops...",
+      //   text: "Complete all fields",
+      //   confirmButtonColor: "#10408F",
+      // });
+      alert("fill the blanks");
     }
-  };
+  }
+  // const [employee, setEmployee] = useState({
+  //   name: "",
+  //   lastName: "",
+  //   email: "",
+  //   phone: "",
+  //   cedula: "",
+  //   checkIn: "",
+  //   password: "",
+  //   confirmpassword: "",
+  // });
+  // const {
+  //   name,
+  //   lastName,
+  //   email,
+  //   phone,
+  //   cedula,
+  //   checkIn,
+  //   password,
+  //   confirmpassword,
+  // } = employee;
+  // const handleOnChange = (e) => {
+  //   // e.preventDefault()
+  //   setEmployee({
+  //     ...employee,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log(employee);
+  //   try {
+  //     if (
+  //       name.length !== 0 &&
+  //       lastName.length !== 0 &&
+  //       email.length !== 0 &&
+  //       phone.length !== 0 &&
+  //       cedula.length !== 0 &&
+  //       checkIn.length !== 0 &&
+  //       password.length !== 0 &&
+  //       confirmpassword === password
+  //     ) {
+  //       dispatch(registerBarber(employee));
+  //       setEmployee({
+  //         name: "",
+  //         lastName: "",
+  //         email: "",
+  //         phone: 0,
+  //         checkIn: 0,
+  //         cedula: 0,
+  //         password: "",
+  //       });
+  //       navigate.push("/home");
+  //     } else if (
+  //       name.length === 0 ||
+  //       lastName.length === 0 ||
+  //       email.length === 0 ||
+  //       phone.length === 0 ||
+  //       cedula.length === 0 ||
+  //       password.length === 0 ||
+  //       checkIn.length === 0 ||
+  //       confirmpassword.length === 0
+  //     ) {
+  //       alert("Please fill all the fields");
+  //     }
+  //   } catch (error) {
+  //     console.log("Error to Create a Barber", error);
+  //   }
+  // };
 
   return (
     <>
@@ -128,7 +197,90 @@ export default function RegisterBr() {
                       onSubmit={(e) => handleSubmit(e)}
                       className="ltn__form-box contact-form-box"
                     >
-                      <input
+                      <Input
+                        state={name}
+                        setState={setName}
+                        type="text"
+                        // label="First Name"
+                        placeholder="First Name"
+                        // value={name}
+                        name="name"
+                        error="Your first name cannot contain numbers or special characters"
+                        regularExpression={expression.name}
+                      />
+                      <Input
+                        state={lastName}
+                        setState={setLastName}
+                        name="lastName"
+                        type="text"
+                        // label="Last Name"
+                        placeholder="Last Name"
+                        error="Your last name cannot contain numbers or special characters"
+                        regularExpression={expression.lastName}
+                      />
+                      <Input
+                        state={email}
+                        setState={setEmail}
+                        name="email"
+                        type="email"
+                        // label="E-mail"
+                        placeholder="E-mail"
+                        error="Please enter a valid email"
+                        regularExpression={expression.email}
+                      />
+                      <Input
+                        state={phone}
+                        setState={setPhone}
+                        name="phone"
+                        type="number"
+                        // label="Phone"
+                        placeholder="Phone"
+                        error="Please enter a valid phone number"
+                        regularExpression={expression.phone}
+                      />
+                      <Input
+                        state={cedula}
+                        setState={setCedula}
+                        name="cedula"
+                        type="number"
+                        // label="Phone"
+                        placeholder="Cedula"
+                        error="Please enter a valid cedula"
+                        regularExpression={expression.cedula}
+                      />
+                      <Input
+                        state={checkIn}
+                        setState={setCheckIn}
+                        name="checkIn"
+                        type="date"
+                        // label="Phone"
+                        placeholder="checkIn"
+                        // error="Please enter a valid direction"
+                        // regularExpression={expression.checkIn}
+                      />
+                      <Input
+                        state={password}
+                        setState={setPassword}
+                        name="password"
+                        type="password"
+                        // label="Password"
+                        placeholder="Password"
+                        error="Your passwords needs 8-12 characters, one special symbol, one number, at least one lowercase letter and at least one uppercase letter"
+                        regularExpression={expression.password}
+                      />
+                      <Input
+                        state={password2}
+                        setState={setPassword2}
+                        name="confirm-password"
+                        type="password"
+                        // label="Confirm password"
+                        placeholder="Confirm password"
+                        regularExpression={expression.password}
+                      />
+                      {password2.value !== password.value && (
+                        <span>Password does not match</span>
+                      )}
+                      {/* <input
                         type="text"
                         placeholder="Name"
                         value={name}
@@ -183,7 +335,7 @@ export default function RegisterBr() {
                         value={confirmpassword}
                         name="confirmpassword"
                         onChange={(e) => handleOnChange(e)}
-                      />
+                      /> */}
                       <div className="btn-wrapper">
                         <button
                           className="theme-btn-1 btn reverse-color btn-block"
