@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import Input from "./Input";
 import { useHistory } from "react-router-dom";
-import { currentUser } from "../../redux/actions";
+import { currentUser, getUsers } from "../../redux/actions";
 import "../styles/style.css";
 // import "./styles/font-icons.css";
 // import "./styles/plugins.css";
@@ -9,49 +10,52 @@ import "../styles/style.css";
 import bg from "../../assets/4.png";
 
 export default function Login() {
-    const dispatch = useDispatch()
-    const navigate = useHistory()
-  const [usercedula, setUsercedula] = useState({
-    cedula: 0,
-  });
-  const { cedula } = usercedula;
+  const dispatch = useDispatch();
+  const navigate = useHistory();
+  const allUsers = useSelector((state) => state.users);
+  const [cedula, setCedula] = useState({ value: "", valid: null });
+  console.log("State of cedula",cedula);
+
+  const user = { cedula: cedula.value };
+  console.log("User State", user);
+
+
+  useEffect(() => {
+    dispatch(getUsers());
+  }, [dispatch]);
+
+  const expression = {
+    cedula: /^[\+]?[(]?[0-9]{1}[)]?[-\s\.]?[0-9]{2}[-\s\.]?[0-9]{4,6}$/,
+    // password:
+    //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+    // Minimum eight and maximum 10 characters, at least one uppercase letter, one lowercase letter, one number and one special character (*),
+  };
 
   const handleOnChange = (e) => {
     // e.preventDefault();
-    setUsercedula({
-      ...usercedula,
+    setCedula({
+      ...cedula,
       [e.target.name]: e.target.value,
     });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(user);
+    console.log("soy la cedula del handleSubmit",cedula);
     try {
-      // if (
-      //   name.length !== 0 &&
-      //   // image.length !== 0 &&
-      //   description.length !== 0 &&
-      //   genres.length !== 0 &&
-      //   platforms.length !== 0 &&
-      //   rating.length !== 0 &&
-      //   rating > 0 && rating < 6 &&
-      //   release_date.length !== 0
-      // ) {
-      await dispatch(currentUser(usercedula.cedula));
-      setUsercedula({
-        cedula: 0,
-      });
-      navigate.push("/");
-
-      // else if(name.length === 0 ||
-      //   // image.length === 0 ||
-      //   description.length === 0 ||
-      //   genres.length === 0 ||
-      //   platforms.length === 0 ||
-      //   release_date.length === 0){
-      //     alert("Please fill all the fields");
-      // }
+      if (cedula.valid === "true") {
+        await dispatch(currentUser(cedula.value));
+        setCedula({
+          cedula: 0,
+        });
+        
+        setTimeout(() => {navigate.push("/");}, 100);
+      } else if (cedula.valid === "false") {
+        setTimeout(() => {window.location.reload()}, 1300);
+      }else if(cedula.length === 0){
+        alert("Please fill all the fields");
+      }
     } catch (error) {
+      navigate.push("/home");
       console.log("Error to Create a User", error);
     }
   };
@@ -79,12 +83,23 @@ export default function Login() {
                   className="ltn__form-box contact-form-box"
                 >
                   {/* <input type="text" name="email" placeholder="Email*"/> */}
-                  <input
+                  {/* <input
                     type="text"
                     placeholder="Cédula"
                     value={cedula}
                     name="cedula"
                     onChange={(e) => handleOnChange(e)}
+                  /> */}
+                  <label>EMAIL</label>
+                  <Input
+                    state={cedula}
+                    setState={setCedula}
+                    // id="singup-email"
+                    name="cedula"
+                    type="number"
+                    placeholder="Enter cedula"
+                    error="This cedula is not valid"
+                    regularExpression={expression.cedula}
                   />
                   <div className="btn-wrapper mt-0">
                     <button className="theme-btn-1 btn btn-block" type="submit">

@@ -21,6 +21,7 @@ export default function rootReducer(state = initialSatate, action) {
     case "CURRENT_USER":
       console.log(state.users);
       let arr = state.users.filter((user) => user.cedula === Number(action.payload));
+      if(!arr.length){window.location.reload();}
       console.log("current user action payload", action.payload);
       console.log("current user arr", arr);
       return {
