@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getUsers, currentUser } from "../../redux/actions";
+import Barbers from './Barbers';
  
 export default function Home () {
     const current = useSelector((state) => state.currentUser)
@@ -16,9 +17,10 @@ export default function Home () {
     return (
         <>
         {/* <div>{current.name}</div> */}
-        <h1>HOMEEEEEEEEE</h1>
+        <h1>HOME</h1>
         <h3>Hello</h3>
         {currentUserrr ? <h5>{currentUserrr}</h5> : <h5>No Name</h5>}
+        <Barbers/>
         {/* <h5>{currentUserrr}</h5> */}
         </>
         
