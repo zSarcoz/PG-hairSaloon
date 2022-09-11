@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Input from "./Input";
+import Swal from 'sweetalert2'
 import { useHistory } from "react-router-dom";
 import { currentUser, getUsers } from "../../redux/actions";
 import "../styles/style.css";
@@ -14,10 +15,9 @@ export default function Login() {
   const navigate = useHistory();
   const allUsers = useSelector((state) => state.users);
   const [cedula, setCedula] = useState({ value: "", valid: null });
-  console.log("State of cedula",cedula);
-
+  // console.log("State of cedula",cedula);
   const user = { cedula: cedula.value };
-  console.log("User State", user);
+  // console.log("User State", user);
 
 
   useEffect(() => {
@@ -40,17 +40,23 @@ export default function Login() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("soy la cedula del handleSubmit",cedula);
+    // console.log("soy la cedula del handleSubmit",cedula);
     try {
       if (cedula.valid === "true") {
+
         await dispatch(currentUser(cedula.value));
         setCedula({
           cedula: 0,
         });
         
-        setTimeout(() => {navigate.push("/");}, 100);
+        setTimeout(() => {navigate.push("/");}, 2100);
       } else if (cedula.valid === "false") {
-        setTimeout(() => {window.location.reload()}, 1300);
+        Swal.fire(
+          'Cedula invalida',
+          'Coloque una cedula con los suficientes caracteres validos',
+          'question'
+        )
+        // setTimeout(() => {window.location.reload()}, 2500);
       }else if(cedula.length === 0){
         alert("Please fill all the fields");
       }
