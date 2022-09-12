@@ -11,8 +11,9 @@
     padding: 40px;
     transition: .6s ease;
     background-color: rgb(240, 240, 240); */
-    height: 500px;
-    width: 350px;
+    display: flex;
+    height: 61vh;
+    width: 21.85vw;
     box-shadow: 5px 5px 20px black;
     overflow: hidden;
     border-radius: 5px;
@@ -35,17 +36,17 @@
 .intro{
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
+    align-items: center;
     /* justify-content: center; */
     /* height: 350px; */
-    height: 70px;
-    width: 350px;
+    height: 10vh;
+    width: 21.85vw;
     /* padding: 6px; */
     box-sizing: border-box;
     position: absolute;
     background-color: #15151591;
     backdrop-filter: blur(5px);
-    bottom: 190px;
+    bottom: 19vh;
     border-radius: 5px;
     color: whitesmoke;
     transition: .3s;
@@ -74,7 +75,7 @@
 }
 
 .cardContainer:hover .intro{
-    height: 505px;
+    height: 61vh;
     justify-content: center;
     background-color: #1a1a1ace;
 }
