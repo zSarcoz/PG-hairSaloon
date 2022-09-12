@@ -1,4 +1,5 @@
 import React from "react";
+import ServicesCard from "./ServicesCard"
 
 export default function Services() {
   const services = [
@@ -22,6 +23,11 @@ export default function Services() {
   return (
     <>
       <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <div>
+      {services.map((project, index) => {
+            return <ServicesCard key={index} {...project} />;
+          })}
+      </div>
     </>
   );
 }
