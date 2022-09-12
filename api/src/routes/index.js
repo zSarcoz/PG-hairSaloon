@@ -8,10 +8,13 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 const user = require('./userController');
 const barber = require('./barberController');
+const services = require('./serviceController');
 
 router.use('/user', user)
 
 router.use('/barber', barber)
+
+router.use('/services', services)
 
 module.exports = router;
  
