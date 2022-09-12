@@ -22,7 +22,7 @@ export default function Services() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <h1 className="text-3xl font-bold underline">Servicios</h1>
       <div>
       {services.map((project, index) => {
             return <ServicesCard key={index} {...project} />;

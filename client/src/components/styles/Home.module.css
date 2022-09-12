@@ -1,0 +1,13 @@
+.divService{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0px;
+    gap: 20px;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
