@@ -20,14 +20,14 @@ export default function Barbers() {
     {
       name: "Carlos",
       lastName: "Lopez",
-      email: "soygay2@gmail.com",
+      email: "barber12@gmail.com",
       phone: "04247233456",
       available: true,
     },
     {
       name: "Marcos",
       lastName: "Torres",
-      email: "soygay4@gmail.com",
+      email: "barber13@gmail.com",
       phone: "04243433456",
       available: true,
     },
