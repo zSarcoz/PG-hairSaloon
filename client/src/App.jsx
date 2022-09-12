@@ -7,6 +7,7 @@ import Login from "./components/Forms/Login.jsx";
 import Home from "./components/Home/Home.jsx";
 import Timer from "./components/Timer.jsx";
 import Barbers from "./components/Home/Barbers.jsx";
+import Services from "./components/Home/Services.jsx"
 
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
           <Switch>  
             <Route exact path="/">
               <Home />
+            </Route>
+            <Route exact path="/services">
+              <Services />
             </Route>
             <Route exact path="/register/employee">
               <RegisterBr />
