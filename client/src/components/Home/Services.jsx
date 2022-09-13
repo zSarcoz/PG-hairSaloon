@@ -1,7 +1,21 @@
-import React from "react";
+import React, {useEffect} from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { getServices } from "../../redux/actions";
 import ServicesCard from "./ServicesCard"
 
 export default function Services() {
+
+  const allServices = useSelector((state) => state.services);
+  const dispatch = useDispatch();
+  const navigate = useHistory();
+
+  console.log("allBarbers", allServices);
+
+  useEffect(() => {
+    dispatch(getServices());
+  }, [dispatch]);
+
   const services = [
     {
       name: "Cabello",
@@ -18,16 +32,40 @@ export default function Services() {
       description: "Mascarilla",
       price: 8,
     },
+    {
+      name: "Exfoliación",
+      description: "Mascarilla",
+      price: 8,
+    },
+    {
+      name: "Exfoliación",
+      description: "Mascarilla",
+      price: 8,
+    },
+    {
+      name: "Exfoliación",
+      description: "Mascarilla",
+      price: 8,
+    },
+    {
+      name: "Exfoliación",
+      description: "Mascarilla",
+      price: 8,
+    },
+    {
+      name: "Exfoliación",
+      description: "Mascarilla",
+      price: 8,
+    },
   ];
 
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Servicios</h1>
-      <div>
-      {services.map((project, index) => {
+      {/* <div> */}
+      {allServices.map((project, index) => {
             return <ServicesCard key={index} {...project} />;
           })}
-      </div>
+      {/* </div> */}
     </>
   );
 }

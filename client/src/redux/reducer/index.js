@@ -7,6 +7,7 @@ const initialSatate = {
   users: [],
   currentUser: [],
   barbers: [],
+  services: [],
   error: "",
 };
 
@@ -61,6 +62,17 @@ export default function rootReducer(state = initialSatate, action) {
       };
     }
     case "REGISTER_BARBER": {
+      return {
+        ...state,
+      };
+    }
+    case "GET_SERVICES": {
+      return {
+        ...state,
+        services: action.payload,
+      };
+    }
+    case "SET_SERVICES": {
       return {
         ...state,
       };

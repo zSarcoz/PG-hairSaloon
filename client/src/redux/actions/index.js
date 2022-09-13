@@ -71,6 +71,34 @@ export const getBarbers = () => {
   };
 }
 
+export const getServices = () => {
+  return async function (dispatch) {
+    try {
+      const response = await axios.get("http://localhost:3001/services");
+      console.log(response)
+      return dispatch({
+        type: "GET_SERVICES",
+        payload: response.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+}
+
+export function setServices(payload) {
+  console.log(payload)
+  return async function () {
+    try {
+      await axios.post("http://localhost:3001/services", { ...payload });
+      console.log("services succesfully obtained")
+      // alert("Succefully created");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+}
+
 export function registerBarber(payload) {
   console.log(payload)
   return async function () {

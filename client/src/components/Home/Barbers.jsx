@@ -42,7 +42,7 @@ export default function Barbers() {
         <h1>Barbers</h1>
         {/* <h3>Hello</h3> */}
         <div className={s.containerCards}>
-          {console.log(barberos)}
+          {/* {console.log(barberos)} */}
           {allBarbers.map((project, index) => {
             return <BarberCards key={index} {...project} />;
           })}
