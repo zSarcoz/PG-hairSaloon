@@ -1,32 +1,31 @@
-const { DataTypes } = require("sequelize");
+const { DataTypes, STRING, FLOAT } = require("sequelize");
 // Exportamos una funcion que define el modelo
 // Luego le injectamos la conexion a sequelize.
 
 module.exports = (sequelize) => {
-  sequelize.define("services", {
-    // id:{
-    //     type:DataTypes.UUID,// Genero un id aleatorio con numeros y letras
-    //     defaultValue: DataTypes.UUIDV4,// Identificador universal segun la norma V4
-    //     allowNull:false,// Hago el campo obligatorio
-    //     primaryKey: true
-    //   },
+  sequelize.define(
+    "services",
+    {
+      // id:{
+      //     type:DataTypes.UUID,// Genero un id aleatorio con numeros y letras
+      //     defaultValue: DataTypes.UUIDV4,// Identificador universal segun la norma V4
+      //     allowNull:false,// Hago el campo obligatorio
+      //     primaryKey: true
+      //   },
 
-    name: {
-      type:DataTypes.STRING,
-      allowNull: false,
-    },
-    price:{
-        type: DataTypes.FLOAT,
-        allowNull: false,
-    },
-    description:{
+      name: {
         type: DataTypes.STRING,
         allowNull: false,
+      },
+      subtipos: {
+        type: DataTypes.ARRAY(STRING),
+        allowNull: false,
+      },
+      prices: {
+        type: DataTypes.ARRAY(FLOAT),
+        allowNull: false,
+      },
     },
-
-
-  },{timestamps: true,
-    createdAt: 'creado',
-    updatedAt: false
-});
+    { timestamps: false}
+  );
 };

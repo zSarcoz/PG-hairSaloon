@@ -16,14 +16,14 @@ router.get("/", async (req, res, next) => {
   });
 
   router.post("/", async (req, res) => {
-    const { name, price, description} =
+    const { name, prices, subtipos} =
       req.body;
     // const hashFun = await hash(password);
     try {
       let newService = await Services.create({
         name: name,
-        price: price,
-        description: description
+        prices: prices,
+        subtipos: subtipos
       });
       return res.status(201).json(newService);
     } catch (error) {
