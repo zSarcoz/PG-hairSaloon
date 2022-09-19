@@ -42,7 +42,7 @@ router.get("/allServices", async (req, res, next) => {
     let servicios = allServicesW.services.map((service) => service)
     console.log(servicios)
     try{
-      servicios.forEach((ser) => {
+      servicios.forEach((ser) => { 
         console.log(ser.price)
         Services.findOrCreate({
           where: {
