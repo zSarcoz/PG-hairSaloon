@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getUsers, setServices } from "../../redux/actions";
-import s from "../styles/Landing.module.css";
+import { getUsers, setServices } from "../redux/actions";
+import Footer from "./Footer";
+// import s from "./styles/Landing.module.css";
 
-export default function Home() {
+export default function Landing() {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -15,6 +16,7 @@ export default function Home() {
     <>
       <h1>Landing Page</h1>
       <h3>Iniciar sesion | registrate</h3>
+      <Footer/>
     </>
   );
 }

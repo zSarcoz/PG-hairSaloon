@@ -74,7 +74,7 @@ export const getBarbers = () => {
 export const getServices = () => {
   return async function (dispatch) {
     try {
-      const response = await axios.get("http://localhost:3001/services");
+      const response = await axios.get("http://localhost:3001/services/allServices");
       console.log(response)
       return dispatch({
         type: "GET_SERVICES",
@@ -90,7 +90,7 @@ export function setServices(payload) {
   console.log(payload)
   return async function () {
     try {
-      await axios.post("http://localhost:3001/services", { ...payload });
+      await axios.post("http://localhost:3001/services/allServices/men", { ...payload });
       console.log("services succesfully obtained")
       // alert("Succefully created");
     } catch (err) {
