@@ -2,67 +2,165 @@
   "services": [
     {
       "id": 1,
-      "name": "Corte Niño",
-      "subtipos": ["corte tradicional", "lavado"],
-      "price": [13, 2]
+      "name": "Corte",
+      "subtipos": ["Corte tradicional niño", "Corte tradicional caballero", "Corte especial caballero", "Lavado"],
+      "price": [13, 16, 21, 4],
+      "sexo": "Consentidos"
     },
     {
       "id": 2,
-      "name": "Corte Hombre",
-      "subtipos": ["corte tradicional", "lavado"],
-      "price": [16, 4]
+      "name": "Barba",
+      "subtipos": ["Corte barba corta", "Corte barba larga", "Lavado"],
+      "price": [8, 12, 4],
+      "sexo": "Consentidos"
     },
     {
       "id": 3,
-      "name": "Corte Especial",
-      "subtipos": ["corte especial", "lavado"],
-      "price": [21, 4]
+      "name": "Combo",
+      "subtipos": ["Corte + Barba", "Corte + Barba larga", "Lavado"],
+      "price": [22, 26, 4],
+      "sexo": "Consentidos"
     },
     {
       "id": 4,
-      "name": "Barba Corta",
-      "subtipos": ["corte barba corta", "lavado"],
-      "price": [8, 4]
-    },
+      "name": "Tinte",
+      "subtipos": ["Pigmentación de Barba", "Colorimetria Cabello Caballero", "Colorimetria Cabello Caballero Fantasia", "Lavado"],
+      "price": [8, 12, 32, 10],
+      "sexo": "Consentidos"
+    }, 
     {
       "id": 5,
-      "name": "Barba larga",
-      "subtipos": ["corte barba larga", "lavado"],
-      "price": [12, 4]
-    },
-    {
-      "id": 4,
-      "name": "Corte más Barba",
-      "subtipos": ["corte", "barba", "lavado"],
-      "price": [15, 7, 4]
-    },
-    {
-      "id": 5,
-      "name": "Corte más Barba larga",
-      "subtipos": ["corte", "barba larga", "lavado"],
-      "price": [15, 11, 4]
-    },
+      "name": "Depilación",
+      "subtipos": ["Depilación nariz y orejas"],
+      "price": [7],
+      "sexo": "Consentidos"
+    }, 
     {
       "id": 6,
-      "name": "Colorimetria",
+      "name": "Pediculosis",
+      "subtipos": ["Servicio completo de Pediculosis", "Ampolla Pediculosis"],
+      "price": [15, 10],
+      "sexo": "Consentidos"
+    },
+    {
+      "id": 1.1,
+      "name": "Corte",
+      "subtipos": ["Corte Standard Dama", "Corte de Niña", "Corte Flequillo Niña"],
+      "price": [12, 12, 10],
+      "sexo": "Consentidas"
+    },
+    {
+      "id": 1.2,
+      "name": "Peinado",
       "subtipos": [
-        "pigmentacion de barba",
-        "colorimetria de cabello",
-        "lavado"
+        "Corte de Puntas + Peinado Niña 1",
+        "Peinado Niña 1", 
+        "Corte de Puntas + Peinado Niña 2",
+        "Peinado Niña 2",
+        "Corte de Puntas + Peinado Niña 3",
+        "Peinado 3",
+        "Peinado Dama 1 Trenza",
+        "Peinado Dama 2 Recogido Sencillo",
+        "Peinado Dama 3 Recogido Noche",
+        "Peinado Especial Boda",
+        "Ondas Playeras",
+        "Ondas Definidas",
+        "Rulos",
+        "Rulos Cabello Medio",
+        "Rulos Cabello Abundante"
       ],
-      "price": [8, 12, 10]
+      "price": [24, 15, 27, 18, 30, 20, 20, 25, 30, 35, 20, 25, 30, 35, 40],
+      "sexo": "Consentidas"
     },
     {
-      "id": 7,
-      "name": "Colorimetria Fantasia",
-      "subtipos": ["colorimetria de cabello fantasia", "lavado"],
-      "price": [32, 10]
+      "id": 1.3,
+      "name": "Hidratación",
+      "subtipos": [
+        "Hidratación cabello corto + Lavado + Secado Cabello Corto", 
+        "Hidratación cabello medio + Lavado + Secado Cabello Medio",
+        "Hidratación cabello largo + Lavado + Secado Cabello Largo",
+        "Hidratación cabello extralargo + Lavado + Secado Cabello Extralargo"
+    ],
+      "price": [52, 60, 70, 78],
+      "sexo": "Consentidas"
     },
     {
-      "id": 8,
-      "name": "Depilación",
-      "subtipos": ["Depilación"],
-      "price": [7]
+      "id": 1.4,
+      "name": "Alisado",
+      "subtipos": [
+        "Alisado Cabello Corto (Cirugia Capilar) + Lavado + Secado Cabello Corto",
+        "Alisado Cabello Medio (Cirugia Capilar) + Lavado + Secado Cabello Medio",
+        "Alisado Cabello Largo (Cirugia Capilar) + Lavado + Secado Cabello Largo",
+        "Alisado Cabello Extralargo (Cirugia Capilar) + Lavado + Secado Cabello Extralargo"
+    ],
+      "price": [60, 82, 102, 122],
+      "sexo": "Consentidas"
+    },
+    {
+      "id": 1.5,
+      "name": "Secado",
+      "subtipos": [
+        "Secado Cabello Corto",
+        "Secado Cabello Medio",
+        "Secado Cabello Largo",
+        "Secado Cabello Extralargo"
+    ],
+      "price": [12, 15, 20, 25],
+      "sexo": "Consentidas"
+    },
+    {
+      "id": 1.6,
+      "name": "Peinado",
+      "subtipos": [
+        "Kanekalon Sencillo",
+        "Kanekalon Elaborado",
+        "Kanekalon Full",
+        "Extension de hilo (4 hilos)"
+    ],
+      "price": [40, 50, 100, 10],
+      "sexo": "Consentidas"
+    },
+    {
+      "id": 1.7,
+      "name": "Tinte",
+      "subtipos": [
+       "Aplicación Tinte Cabello Corto Dama",
+       "Aplicación Tinte Cabello Largo Dama",
+       "Lavado"
+    ],
+      "price": [22, 37, 12],
+      "sexo": "Consentidas"
+    }, 
+    {
+      "id": 1.8,
+      "name": "Manicure",
+      "subtipos": [
+       "Manicura de Niña",
+       "Manicura de Mami",
+       "Manicure Mami Semipermanente",
+       "Recuperación de uñas"
+    ],
+      "price": [5, 10, 20, 2],
+      "sexo": "Consentidas"
+    }, 
+    {
+      "id": 1.9,
+      "name": "Pedicure",
+      "subtipos": [
+       "Pedicure de Niña",
+       "Pedicure de Mami",
+       "Pedicure Mami Semipermanente",
+       "Recuperación de uñas"
+    ],
+      "price": [6, 15, 15, 2],
+      "sexo": "Consentidas"
+    },
+    {
+      "id": 1.10,
+      "name": "Pediculosis",
+      "subtipos": ["Servicio completo de Pediculosis", "Ampolla Pediculosis"],
+      "price": [15, 10],
+      "sexo": "Consentidas"
     }
   ]
 }

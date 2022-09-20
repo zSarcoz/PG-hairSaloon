@@ -17,7 +17,7 @@ router.get("/allServices", async (req, res, next) => {
     }
   });
 
-  router.post("/allServices/men", async(req, res, next) => {
+  router.post("/allServices", async(req, res, next) => {
     let servicios = allServices.services.map((service) => service)
     console.log(servicios)
     try{
@@ -27,7 +27,8 @@ router.get("/allServices", async (req, res, next) => {
           where: {
             name: ser.name,
             subtipos: ser.subtipos,
-            prices: ser.price
+            prices: ser.price,
+            sexo: ser.sexo
           }
         })
       })

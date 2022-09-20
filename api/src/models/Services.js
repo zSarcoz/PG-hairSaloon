@@ -7,12 +7,11 @@ module.exports = (sequelize) => {
     "services",
     {
       // id:{
-      //     type:DataTypes.UUID,// Genero un id aleatorio con numeros y letras
-      //     defaultValue: DataTypes.UUIDV4,// Identificador universal segun la norma V4
-      //     allowNull:false,// Hago el campo obligatorio
+      //     type:DataTypes.INTEGER,// Genero un id aleatorio con numeros y letras
+      //     // defaultValue: DataTypes.UUIDV4,// Identificador universal segun la norma V4
+      //     allowNull: false,// Hago el campo obligatorio
       //     primaryKey: true
       //   },
-
       name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -25,6 +24,10 @@ module.exports = (sequelize) => {
         type: DataTypes.ARRAY(FLOAT),
         allowNull: false,
       },
+      sexo: {
+        type: DataTypes.STRING,
+        allowNull: true
+      }
     },
     { timestamps: false}
   );
