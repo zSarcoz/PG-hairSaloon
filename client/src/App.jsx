@@ -8,6 +8,7 @@ import Home from "./components/Home/Home.jsx";
 import Timer from "./components/Timer.jsx";
 import Barbers from "./components/Home/Barbers.jsx";
 import Services from "./components/Home/Services.jsx"
+import Landing from "./components/Landing.jsx"
 
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
         <div className="App">
           <Switch>  
             <Route exact path="/">
+              <Landing />
+            </Route>
+            <Route exact path="/home">
               <Home />
             </Route>
             <Route exact path="/services">

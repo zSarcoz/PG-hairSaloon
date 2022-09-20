@@ -6,10 +6,10 @@ import { registerUser, getUsers, currentUser } from "../../redux/actions";
 import Input from "./Input";
 // import { Container, Row, Col } from "react-bootstrap";
 // import "./styles/style.css";
-import "../styles/style.css";
+// import "../styles/style.css";
 // // import "./styles/font-icons.css";
-import "../styles/plugins.css";
-import "../styles/responsive.css";
+// import "../styles/plugins.css";
+// import "../styles/responsive.css";
 // import bg from "../assets/4.png";
 import bg from "../../assets/4.png";
 

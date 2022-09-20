@@ -4,11 +4,11 @@ import Input from "./Input";
 import Swal from 'sweetalert2'
 import { useHistory } from "react-router-dom";
 import { currentUser, getUsers } from "../../redux/actions";
-import "../styles/style.css";
+// import "../styles/style.css";
 // import "./styles/font-icons.css";
 // import "./styles/plugins.css";
 // import "./styles/responsive.css";
-import bg from "../../assets/4.png";
+// import bg from "../../assets/4.png";
 
 export default function Login() {
   const dispatch = useDispatch();

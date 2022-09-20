@@ -4,9 +4,9 @@ import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Input from "./Input";
-import "../styles/style.css";
-import "../styles/plugins.css";
-import "../styles/responsive.css";
+// import "../styles/style.css";
+// import "../styles/plugins.css";
+// import "../styles/responsive.css";
 
 export default function RegisterBr() {
   const dispatch = useDispatch();
