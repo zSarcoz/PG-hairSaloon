@@ -1,20 +1,5 @@
 import axios from "axios";
 
-//Create and export actions called like I want them to be
-
-// export const getUsers = () => {
-//   return async function (dispatch) {
-//     try {
-//       const response = await axios.get("http://localhost:3001/user");
-//       return dispatch({
-//         type: "GET_USERS",
-//         payload: response.data,
-//       });
-//     } catch (err) {
-//       console.log(err);
-//     }
-//   };
-// }
 export function getUsers() {
   return function (dispatch) {
     axios(`http://localhost:3001/user`)
@@ -96,6 +81,14 @@ export function setServices(payload) {
     } catch (err) {
       console.log(err);
     }
+  };
+}
+
+export function filterBySex(payload) {
+  console.log("action redux", payload)
+  return {
+    type: "FILTER_BY_SEX",
+    payload,
   };
 }
 
