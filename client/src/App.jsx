@@ -8,7 +8,7 @@ import Home from "./components/Home/Home.jsx";
 import Timer from "./components/Timer.jsx";
 import Barbers from "./components/Home/Barbers.jsx";
 import Services from "./components/Home/Services.jsx"
-import Landing from "./components/Landing.jsx"
+import Landing from "./components/Home/Landing.jsx"
 
 
 function App() {

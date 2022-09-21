@@ -7,7 +7,9 @@ import s from "../styles/Services.module.css";
 
 export default function Services() {
   const allServices = useSelector((state) => state.services);
-  console.log("allServices", allServices)
+  const currentUser = useSelector((state) => state.currentUser);
+  console.log("Current user form services", currentUser);
+  console.log("allServices", allServices);
   const dispatch = useDispatch();
   const navigate = useHistory();
 
@@ -16,13 +18,17 @@ export default function Services() {
     dispatch(getServices());
   }, [dispatch]);
 
-  function handleOnclick(value){
-    if(value === "Consentidas"){
-      let mujeres = allServices.filter(service => service.sexo === "Consentidas")
-      console.log("Mujeres: ",mujeres)
-    }else{
-      let hombres = allServices.filter(service => service.sexo === "Consentidos")
-      console.log("Hombres: ",hombres)
+  function handleOnclick(value) {
+    if (value === "Consentidas") {
+      let mujeres = allServices.filter(
+        (service) => service.sexo === "Consentidas"
+      );
+      console.log("Mujeres: ", mujeres);
+    } else {
+      let hombres = allServices.filter(
+        (service) => service.sexo === "Consentidos"
+      );
+      console.log("Hombres: ", hombres);
     }
   }
 
@@ -30,14 +36,27 @@ export default function Services() {
     <div className={s.container}>
       {/* <div> */}
       <div className={s.botones}>
-        <button className={s.btn} value="Consentidas" onClick={() => handleOnclick()}>Consentidas</button>
-        <button className={s.btn} value="Consentidos" onClick={() => handleOnclick()}>Consentidos</button>
+        <button
+          className={s.btn}
+          value="Consentidas"
+          onClick={() => handleOnclick()}
+        >
+          Consentidas
+        </button>
+        <button
+          className={s.btn}
+          value="Consentidos"
+          onClick={() => handleOnclick()}
+        >
+          Consentidos
+        </button>
       </div>
       <div className={s.cards}>
         {allServices.map((project, index) => {
           return <ServicesCard key={index} {...project} />;
         })}
-        {/* </div> */}
+
+
       </div>
     </div>
   );
