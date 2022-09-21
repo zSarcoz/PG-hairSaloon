@@ -6,6 +6,7 @@ const initialSatate = {
   // genresGet: [],
   users: [],
   currentUser: [],
+  filterBySexo: [],
   barbers: [],
   services: [],
   error: "",
@@ -76,6 +77,13 @@ export default function rootReducer(state = initialSatate, action) {
       return {
         ...state,
       };
+    }
+    case "FILTER_BY_SEX": {
+      console.log("state from filter", state.filterBySexo)
+      return {
+        ...state,
+        filterBySexo: action.payload
+      }
     }
     default:
       return state;
