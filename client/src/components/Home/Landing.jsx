@@ -1,21 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getUsers, setServices } from "../redux/actions";
+import { getUsers, setServices } from "../../redux/actions";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
-import s from "./styles/Landing.module.css";
-import img from "./styles/img/logoPrincipal.png";
+import Login from "../Forms/Login";
+import s from "../styles/Landing.module.css";
+import img from "../styles/img/logoPrincipal.png";
 
 export default function Landing() {
   const dispatch = useDispatch();
+  const navigate = useHistory();
+  const [isShown, setIsShow] = useState(false)
 
   useEffect(() => {
     dispatch(getUsers());
     dispatch(setServices());
   }, []);
 
+  const handleClick = (e) => {
+    setIsShow(current => !current)
+    // navigate.push("/services");
+  };
+
   return (
     <>
+    {isShown && <Login />}
       <div className={s.landing}>
         <h1 className={s.title}>Vive la experiencia</h1>
         <img className={s.img} src={img} alt="logo" />
@@ -26,14 +36,12 @@ export default function Landing() {
           <Link to="/register">
             <button className={s.btn}>Registrate</button>
           </Link>
-          <Link to="/login">
-            <button className={s.btn2}>Inicia Sesion</button>
-          </Link>
+          <button className={s.btn2} onClick={handleClick}>
+            Inicia Sesion
+          </button>
         </div>
       </div>
-      {/* <div className={s.footerContainer}> */}
       <Footer />
-      {/* </div> */}
     </>
   );
 }

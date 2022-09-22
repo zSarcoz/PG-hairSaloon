@@ -1,4 +1,5 @@
 import React from "react";
+import s from "../styles/Login.module.css";
 
 function Input({
   state,
@@ -38,6 +39,7 @@ function Input({
     <div>
       <label valid={state.valid}>{label}</label>
       <input
+        className={s.input}
         id={name}
         type={type}
         placeholder={placeholder}
@@ -58,7 +60,7 @@ function Input({
       /> */}
 
       {state.valid === "false" && error ? (
-        <span valid={state.valid}>{error}</span>
+        <span valid={state.valid} className={s.spanError}>{error}</span>
       ) : (
         <></>
       )}

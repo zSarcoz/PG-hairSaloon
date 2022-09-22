@@ -1,5 +1,9 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap'); */
+
 .botones button + button{
     margin-left: 20rem;
+    font-size: 50px;
+    font-family: "Montserrat", sans-serif;
 }
 
 .container{
@@ -13,7 +17,13 @@
     /* border: 1px solid black; */
     background-color: #824B62;
     color: white;
+}
 
+
+.cls1 {
+    fill: red;
+    height: 100px;
+    width: auto;
 }
 
 .cards{

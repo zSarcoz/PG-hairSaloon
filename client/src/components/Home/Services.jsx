@@ -7,6 +7,8 @@ import s from "../styles/Services.module.css";
 
 export default function Services() {
   const allServices = useSelector((state) => state.services);
+  const currentUser = useSelector((state) => state.currentUser);
+  console.log("Current user form services", currentUser);
   const filterSex = useSelector((state) => state.filterBySexo);
   console.log("filter", filterBySex);
   console.log("allServices", allServices);
@@ -45,14 +47,6 @@ export default function Services() {
         </button>
       </div>
       <div className={s.cards}>
-        {/* {filterBySex
-          ? filterSex?.map((project, index) => {
-              return <ServicesCard key={index} {...project} />;
-            })
-          : allServices.map((project, index) => {
-              console.log(project)
-              return <ServicesCard key={index} {...project} />;
-            })} */}
             {
               filterSex?.map((project, index) => {
                 console.log(project)
