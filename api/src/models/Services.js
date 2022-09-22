@@ -27,7 +27,11 @@ module.exports = (sequelize) => {
       sexo: {
         type: DataTypes.STRING,
         allowNull: true
-      }
+      },
+      image: {
+        type: DataTypes.TEXT,
+        allowNull: true,
+      },
     },
     { timestamps: false}
   );

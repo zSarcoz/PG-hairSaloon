@@ -5,49 +5,56 @@
       "name": "Corte",
       "subtipos": ["Corte tradicional niño", "Corte tradicional caballero", "Corte especial caballero", "Lavado"],
       "price": [13, 16, 21, 4],
-      "sexo": "Consentidos"
+      "sexo": "Consentidos",
+      "image": "https://cdn.discordapp.com/attachments/735301414536085567/1022568064677597274/unknown.png"
     },
     {
       "id": 2,
       "name": "Barba",
       "subtipos": ["Corte barba corta", "Corte barba larga", "Lavado"],
       "price": [8, 12, 4],
-      "sexo": "Consentidos"
+      "sexo": "Consentidos",
+      "image": "https://cdn.discordapp.com/attachments/735301414536085567/1022568063847116890/unknown.png"
     },
     {
       "id": 3,
       "name": "Combo",
       "subtipos": ["Corte + Barba", "Corte + Barba larga", "Lavado"],
       "price": [22, 26, 4],
-      "sexo": "Consentidos"
+      "sexo": "Consentidos",
+      "image": "https://cdn.discordapp.com/attachments/735301414536085567/1022568064287514655/unknown.png"
     },
     {
       "id": 4,
       "name": "Tinte",
       "subtipos": ["Pigmentación de Barba", "Colorimetria Cabello Caballero", "Colorimetria Cabello Caballero Fantasia", "Lavado"],
       "price": [8, 12, 32, 10],
-      "sexo": "Consentidos"
+      "sexo": "Consentidos",
+      "image": "https://cdn.discordapp.com/attachments/735301414536085567/1022568063498993714/unknown.png"
     }, 
     {
       "id": 5,
       "name": "Depilación",
       "subtipos": ["Depilación nariz y orejas"],
       "price": [7],
-      "sexo": "Consentidos"
+      "sexo": "Consentidos",
+      "image": "https://cdn.discordapp.com/attachments/735301414536085567/1022568065088618627/unknown.png"
     }, 
     {
       "id": 6,
       "name": "Pediculosis",
       "subtipos": ["Servicio completo de Pediculosis", "Ampolla Pediculosis"],
       "price": [15, 10],
-      "sexo": "Consentidos"
+      "sexo": "Consentidos",
+      "image": "https://cdn.discordapp.com/attachments/735301414536085567/1022568063062777876/unknown.png"
     },
     {
       "id": 1.1,
       "name": "Corte",
       "subtipos": ["Corte Standard Dama", "Corte de Niña", "Corte Flequillo Niña"],
       "price": [12, 12, 10],
-      "sexo": "Consentidas"
+      "sexo": "Consentidas",
+      "image": "https://cdn.discordapp.com/attachments/735301414536085567/1022569660232777748/unknown.png"
     },
     {
       "id": 1.2,
@@ -67,10 +74,15 @@
         "Ondas Definidas",
         "Rulos",
         "Rulos Cabello Medio",
-        "Rulos Cabello Abundante"
+        "Rulos Cabello Abundante",
+        "Kanekalon Sencillo",
+        "Kanekalon Elaborado",
+        "Kanekalon Full",
+        "Extension de hilo (4 hilos)"
       ],
-      "price": [24, 15, 27, 18, 30, 20, 20, 25, 30, 35, 20, 25, 30, 35, 40],
-      "sexo": "Consentidas"
+      "price": [24, 15, 27, 18, 30, 20, 20, 25, 30, 35, 20, 25, 30, 35, 40, 40, 50, 100, 10],
+      "sexo": "Consentidas",
+      "image": "https://cdn.discordapp.com/attachments/735301414536085567/1022569663579836486/unknown.png"
     },
     {
       "id": 1.3,
@@ -82,7 +94,8 @@
         "Hidratación cabello extralargo + Lavado + Secado Cabello Extralargo"
     ],
       "price": [52, 60, 70, 78],
-      "sexo": "Consentidas"
+      "sexo": "Consentidas",
+      "image": "https://cdn.discordapp.com/attachments/735301414536085567/1022569660773826620/unknown.png"
     },
     {
       "id": 1.4,
@@ -94,7 +107,8 @@
         "Alisado Cabello Extralargo (Cirugia Capilar) + Lavado + Secado Cabello Extralargo"
     ],
       "price": [60, 82, 102, 122],
-      "sexo": "Consentidas"
+      "sexo": "Consentidas",
+      "image": "https://cdn.discordapp.com/attachments/735301414536085567/1022569659658145822/unknown.png"
     },
     {
       "id": 1.5,
@@ -106,22 +120,11 @@
         "Secado Cabello Extralargo"
     ],
       "price": [12, 15, 20, 25],
-      "sexo": "Consentidas"
+      "sexo": "Consentidas",
+      "image": "https://cdn.discordapp.com/attachments/735301414536085567/1022569664162832476/unknown.png"
     },
     {
       "id": 1.6,
-      "name": "Peinado",
-      "subtipos": [
-        "Kanekalon Sencillo",
-        "Kanekalon Elaborado",
-        "Kanekalon Full",
-        "Extension de hilo (4 hilos)"
-    ],
-      "price": [40, 50, 100, 10],
-      "sexo": "Consentidas"
-    },
-    {
-      "id": 1.7,
       "name": "Tinte",
       "subtipos": [
        "Aplicación Tinte Cabello Corto Dama",
@@ -129,10 +132,11 @@
        "Lavado"
     ],
       "price": [22, 37, 12],
-      "sexo": "Consentidas"
+      "sexo": "Consentidas",
+      "image": "https://cdn.discordapp.com/attachments/735301414536085567/1022569664640978995/unknown.png"
     }, 
     {
-      "id": 1.8,
+      "id": 1.7,
       "name": "Manicure",
       "subtipos": [
        "Manicura de Niña",
@@ -141,10 +145,11 @@
        "Recuperación de uñas"
     ],
       "price": [5, 10, 20, 2],
-      "sexo": "Consentidas"
+      "sexo": "Consentidas",
+      "image": "https://cdn.discordapp.com/attachments/735301414536085567/1022569661872746546/unknown.png"
     }, 
     {
-      "id": 1.9,
+      "id": 1.8,
       "name": "Pedicure",
       "subtipos": [
        "Pedicure de Niña",
@@ -153,14 +158,24 @@
        "Recuperación de uñas"
     ],
       "price": [6, 15, 15, 2],
-      "sexo": "Consentidas"
+      "sexo": "Consentidas",
+      "image": "https://cdn.discordapp.com/attachments/735301414536085567/1022569663051350087/unknown.png"
     },
     {
-      "id": 1.10,
+      "id": 1.9,
       "name": "Pediculosis",
       "subtipos": ["Servicio completo de Pediculosis", "Ampolla Pediculosis"],
       "price": [15, 10],
-      "sexo": "Consentidas"
+      "sexo": "Consentidas",
+      "image": "https://cdn.discordapp.com/attachments/735301414536085567/1022569662443180032/unknown.png"
+    },
+    {
+      "id": 1.10,
+      "name": "Lavado",
+      "subtipos": ["Lavado Dama Sencillo", "Lavado Dama Especial", "Lavado Especial Kerastase", "Lavado Especial Morroconai"],
+      "price": [10, 12, 15, 15],
+      "sexo": "Consentidas",
+      "image": "https://cdn.discordapp.com/attachments/735301414536085567/1022569661272965170/unknown.png"
     }
   ]
 }
