@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import ErrorNotFound from "./components/ErrorNotFound";
 import Register from "./components/Forms/Register";
 import RegisterBr from "./components/Forms/RegisterBr";
-import Login from "./components/Forms/Login.jsx";
+import AlertSuccess from "./components/Forms/AlertSuccess.jsx";
 import Home from "./components/Home/Home.jsx";
 import Timer from "./components/Timer.jsx";
 import Barbers from "./components/Home/Barbers.jsx";
@@ -38,8 +38,8 @@ function App() {
             <Route exact path="/register">
               <Register />
             </Route>
-            <Route exact path="/login">
-              <Login />
+            <Route exact path="/alert">
+              <AlertSuccess />
             </Route>
             {/* <Route component={ErrorNotFound} /> */}
           </Switch>
