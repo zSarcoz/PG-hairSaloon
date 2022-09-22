@@ -6,8 +6,9 @@
     padding: 0px;
     gap: 20px;
     position: relative;
-    width: 80vw;
+    width: 100vw;
     /* height: 100vh; */
     flex-wrap: wrap;
     margin-top: 2rem;
+    background-color: #fcf6f0;
 }

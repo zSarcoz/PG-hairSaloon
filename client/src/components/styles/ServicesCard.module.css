@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
+
 .serviceCard{
     display: flex;
     flex-direction: column;
@@ -7,12 +9,12 @@
     height: 20vh;
     margin: 20px;
     padding: 10px;
-    gap: 10px;
-    border: 1px solid black;
-    border-radius: 5px;
-    box-shadow: 5px 10px 10px rgba(73, 73, 73, 0.87);
+    /* gap: 10px; */
+    /* border: 1px solid black; */
+    /* border-radius: 5px; */
+    /* box-shadow: 5px 10px 10px rgba(73, 73, 73, 0.87); */
     overflow: hidden;
-    background-color: pink;
+    /* background-color: pink; */
 }
 .servicesCardMan{
     display: flex;
@@ -23,10 +25,47 @@
     height: 20vh;
     margin: 20px;
     padding: 10px;
-    gap: 10px;
-    border: 1px solid black;
+    /* gap: 10px; */
+    /* border: 1px solid black; */
     border-radius: 5px;
-    box-shadow: 5px 10px 10px rgba(73, 73, 73, 0.87);
+    /* box-shadow: 5px 10px 10px rgba(73, 73, 73, 0.87); */
     overflow: hidden;
-    background-color: rgb(31, 111, 216);
+    /* background-color: rgb(31, 111, 216); */
+}
+
+.logosServices{
+    height: 700px;
+    width: 700px;
+}
+
+.name{
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: 800;
+    color: #6C7287;
+}
+
+.price{
+    font-family: "Montserrat", sans-serif;
+    font-size:14px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    color: #6C7287;
+}
+
+.nameM{
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: 800;
+    color: #F97B51;
+}
+
+.priceM{
+    font-family: "Montserrat", sans-serif;
+    font-size:14px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    color: #F97B51;
 }

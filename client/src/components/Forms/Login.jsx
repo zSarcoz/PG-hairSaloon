@@ -38,7 +38,7 @@ export default function Login() {
         });
 
         setTimeout(() => {
-          navigate.push("/services");
+          navigate.push("/home");
         }, 2100);
       } else if (cedula.valid === "false") {
         Swal.fire(

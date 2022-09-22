@@ -9,9 +9,9 @@ export default function ServicesCard({ name, prices, subtipos, sexo, image }) {
       <div
         className={sexo === "Consentidas" ? s.serviceCard : s.servicesCardMan}
       >
-        <h1 className={s.name}>{name}</h1>
-        <h3 className={s.price}>Desde: {prices[0]}$</h3>
-        <img src={image} alt="icon" />
+        <img className={s.logosServices} src={image} alt="icon" />
+        <h1 className={sexo === "Consentidas" ? s.name : s.nameM}>{name}</h1>
+        <h3 className={sexo === "Consentidas" ? s.price : s.priceM}>Desde: ${prices[0]}</h3>
       </div>
     </>
   );

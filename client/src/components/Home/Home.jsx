@@ -20,9 +20,9 @@ export default function Home() {
   return (
     <>
       {/* <div>{current.name}</div> */}
-      <h1>HOME</h1>
+      {/* <h1>HOME</h1>
       <h3>Hello</h3>
-      {currentUserrr ? <h5>{currentUserrr}</h5> : <h5>No Name</h5>}
+      {currentUserrr ? <h5>{currentUserrr}</h5> : <h5>No Name</h5>} */}
       <h1 className="text-3xl font-bold underline">Servicios</h1>
       <div className={s.divService}>
         <Services />
