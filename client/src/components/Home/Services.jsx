@@ -11,7 +11,7 @@ export default function Services() {
   console.log("filter", filterBySex);
   console.log("allServices", allServices);
   const dispatch = useDispatch();
-  const navigate = useHistory();
+  const navigate = useHistory();  
 
   useEffect(() => {
     dispatch(setServices());
