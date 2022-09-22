@@ -1,5 +1,6 @@
 import React from "react";
 import s from "../styles/AlertSuccess.module.css";
+import imgscs from "../styles/img/successIcon.png"
 
 export default function AlertSuccess() {
   return (
@@ -17,8 +18,9 @@ export default function AlertSuccess() {
           </svg>
           <form className={s.form}>
             <label className={s.label}>
-              Ya eres parte <br /> de la familia
+              Ya eres parte <br /> de nuestra familia
             </label>
+            <img className={s.img} src={imgscs} alt="icon" />
           </form>
         </div>
       </div>

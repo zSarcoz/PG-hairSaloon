@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { registerUser, getUsers, currentUser } from "../../redux/actions";
 import Input from "./Input";
+import AlertSuccess from "./AlertSuccess";
 // import { Container, Row, Col } from "react-bootstrap";
 // import "./styles/style.css";
 // import "../styles/style.css";
@@ -18,6 +19,7 @@ export default function Register() {
   const navigate = useHistory();
   const dispatch = useDispatch();
   const [errors, setErrors] = useState({});
+  const [isShown, setIsShow] = useState(false)
 
   const [name, setName] = useState({ value: "", valid: null });
   const [lastName, setLastName] = useState({ value: "", valid: null });
@@ -71,7 +73,7 @@ export default function Register() {
       await dispatch(registerUser(user));
       await dispatch(currentUser(cedula.value));
 
-        navigate.push("/");
+        navigate.push("/home");
     } else {
       // Swal.fire({
       //   icon: "question",
@@ -83,8 +85,14 @@ export default function Register() {
     }
   }
 
+  const handleClick = (e) => {
+    setIsShow(current => !current)
+    // navigate.push("/services");
+  }; 
+
   return (
     <>
+    {isShown && <AlertSuccess />}
       <div className="ltn__body-font">
         <div
           class="ltn__breadcrumb-area ltn__breadcrumb-area-4 bg-overlay-theme-10--- bg-image"
@@ -198,6 +206,7 @@ export default function Register() {
                       <button
                         className="theme-btn-1 btn reverse-color btn-block"
                         type="submit"
+                        onClick={handleClick}
                       >
                         CREATE ACCOUNT
                       </button>
