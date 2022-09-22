@@ -16,7 +16,7 @@ export default function Timer(){
       } else if (!timerOn) {
         clearInterval(interval);
       }
-  
+   
       return () => clearInterval(interval);
     }, [timerOn]);
   
