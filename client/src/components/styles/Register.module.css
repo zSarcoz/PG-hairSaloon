@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 
 .footerContainer{
     margin-top: 0px;
@@ -14,28 +15,31 @@
     width: 100%
 
 }
-body{
+/* body{
     height: 100%;
     width: 100%;
-}
-button.botonguardar{
-    padding: 10px 30px;
+} */
+.botonguardar{
+    padding: 5px 10px;
     border-radius: 60px;
     background-color: #adad57;
     color: aliceblue;
-    font: weight 700px;
-    
-    
+    font-size: 25px;
+    font-weight: 500;
+    font-family:"Montserrat", sans-serif;
 }
 
+
+
 .formulario{
+    display: flex;
     background-color: #adad57;
     color: #6C7287;
     height: 60vh;
-    width: 25vw;
+    width: 30vw;
     margin-left: 75vh;
     justify-content: center;
-    border-radius: 10%;
+    border-radius: 5%;
 }
 .boton{
     padding: 10px 30px;
@@ -44,20 +48,38 @@ button.botonguardar{
     color: aliceblue;
     font: weight 700px;
     width: 20vh;
-    margin-left: 16vh;
-    margin-top: 25vh;
+    box-shadow: 5px 5px 10px #0000004f;
+
+    /* margin-left: 16vh; */
+    /* margin-top: 25vh; */
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    height: 100%;
+    width: 80%;
+    margin-top: 5%;
+    /* background-color: red; */
+}
+
+.container{
+    /* background-color: blue; */
 }
 @media screen and (max-width: 992px){
     .boton{
         
-        margin-left: 13vh;
-        margin-top: 25vh;
+        margin-left: 14vw;
+        margin-top: 2vh;
+        margin-bottom: 5%;
     }
     .formulario{
         
-        height :50vh;
+        height :70%;
         width: 70vw;
         margin-left: 10vh;
+        
 
         
     }

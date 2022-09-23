@@ -43,8 +43,11 @@
     margin: 1.5rem 0 0.9rem 0;
     padding: 4%;
     width: 100%;
-    border-radius: 7px;
+    border-radius: 12px;
     outline: none;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
 }
 .btn {
     background-color: #824B62 !important;

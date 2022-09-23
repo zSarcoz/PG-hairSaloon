@@ -7,6 +7,7 @@ import Input from "./Input";
 import fondok from "../styles/img/fkapolo.jpg";
 import s from "../styles/Register.module.css"
 import Footer from "../Home/Footer";
+import AlertSuccess from "../Forms/AlertSuccess.jsx"
 // import { Container, Row, Col } from "react-bootstrap";
 // import "./styles/style.css";
 // import "../styles/style.css";
@@ -75,7 +76,8 @@ export default function Register() {
       await dispatch(registerUser(user));
       await dispatch(currentUser(cedula.value));
 
-        navigate.push("/home");
+        setTimeout(()=>{navigate.push("/services")},2000)
+        
     } else {
       // Swal.fire({
       //   icon: "question",
@@ -94,15 +96,16 @@ export default function Register() {
 
   return (
     <>
+    {isShown && <AlertSuccess/>}
     <img className={s.fondouno} src={fondok} alt="FONDO" />
     
-          <div className="container">
+          <div className={s.container}>
              <p className={s.css}>
                     Forma parte de la familia Kapolo</p>
             <div className={s.formulario}>
                   <form
                     onSubmit={(e) => handleSubmit(e)}
-                    className="ltn__form-box contact-form-box">
+                    className={s.form}>
                     <Input
                       state={name}
                       setState={setName}
@@ -166,21 +169,12 @@ export default function Register() {
                     />
                     <div className={s.boton}>
                       <button
-                        className="botonguardar"
-                        type="submit"> Guardar</button>
+                        className={s.botonguardar}
+                        type="submit"
+                        onClick={handleClick}
+                        > Guardar</button>
                     </div>
                   </form>
-                  <div className="by-agree text-center">
-                    {/* <p>By creating an account, you agree to our:</p>
-                  <p>
-                    <a href="#">
-                      TERMS OF CONDITIONS &nbsp; &nbsp; | &nbsp; &nbsp;
-                      PRIVACY POLICY
-                    </a>
-                  </p> */}
-                    
-                  
-                </div>
               </div>
             
           

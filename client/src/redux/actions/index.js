@@ -34,7 +34,6 @@ export function registerUser(payload) {
           payload: response.data
         })
       })
-      alert("Succefully created");
     } catch (err) {
       console.log(err);
     }
