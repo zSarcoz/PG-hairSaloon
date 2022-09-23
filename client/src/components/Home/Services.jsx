@@ -276,17 +276,19 @@ export default function Services() {
               </svg>
             </button>
           </div>
-          { !filterSex.length ? "" :
+          {!filterSex.length ? (
+            ""
+          ) : (
             <div className={s.cards}>
-            {filterSex?.map((project, index) => {
-              console.log(project);
-              return <ServicesCard key={index} {...project} />;
-            })}
-          </div>
-          }
-        <Footer color={"#6C7287"} />
+              {filterSex?.map((project, index) => {
+                console.log(project);
+                return <ServicesCard key={index} {...project} />;
+              })}
+            </div>
+          )}
         </div>
       </div>
+      <Footer color={"#6C7287"} />
     </>
   );
 }

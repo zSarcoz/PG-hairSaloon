@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 import { registerUser, getUsers, currentUser } from "../../redux/actions";
 import Input from "./Input";
 import fondok from "../styles/img/fkapolo.png";
-import s from "../styles/Register.module.css"
+import s from "../styles/Register.module.css";
 import Footer from "../Home/Footer";
-import AlertSuccess from "../Forms/AlertSuccess.jsx"
+import AlertSuccess from "../Forms/AlertSuccess.jsx";
 // import { Container, Row, Col } from "react-bootstrap";
 // import "./styles/style.css";
 // import "../styles/style.css";
@@ -22,7 +22,7 @@ export default function Register() {
   const navigate = useHistory();
   const dispatch = useDispatch();
   const [errors, setErrors] = useState({});
-  const [isShown, setIsShow] = useState(false)
+  const [isShown, setIsShow] = useState(false);
 
   const [name, setName] = useState({ value: "", valid: null });
   const [lastName, setLastName] = useState({ value: "", valid: null });
@@ -35,7 +35,7 @@ export default function Register() {
   console.log(phone);
   console.log(email);
   console.log(cedula);
-  console.log(direction)
+  console.log(direction);
   const user = {
     name: name.value,
     lastName: lastName.value,
@@ -52,12 +52,11 @@ export default function Register() {
     email: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, //eslint-disable-line
     phone: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, //eslint-disable-line
     cedula: /^[\+]?[(]?[0-9]{1}[)]?[-\s\.]?[0-9]{2}[-\s\.]?[0-9]{4,6}$/,
-    direction: /^[a-zA-ZÀ-ÿ\s]{1,100}$/
+    direction: /^[a-zA-ZÀ-ÿ\s]{1,100}$/,
     // password:
     //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
     // Minimum eight and maximum 10 characters, at least one uppercase letter, one lowercase letter, one number and one special character (*),
   };
-
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -65,7 +64,7 @@ export default function Register() {
 
     if (
       name.valid === "true" &&
-      direction.valid === 'true' &&
+      direction.valid === "true" &&
       lastName.valid === "true" &&
       email.valid === "true" &&
       cedula.valid === "true" &&
@@ -76,8 +75,9 @@ export default function Register() {
       await dispatch(registerUser(user));
       await dispatch(currentUser(cedula.value));
 
-        setTimeout(()=>{navigate.push("/services")},2000)
-        
+      setTimeout(() => {
+        navigate.push("/services");
+      }, 2000);
     } else {
       // Swal.fire({
       //   icon: "question",
@@ -90,96 +90,96 @@ export default function Register() {
   }
 
   const handleClick = (e) => {
-    setIsShow(current => !current)
+    setIsShow((current) => !current);
     // navigate.push("/services");
-  }; 
+  };
 
   return (
     <>
-    {isShown && <AlertSuccess/>}
-    <img className={s.fondouno} src={fondok} alt="FONDO" />
-    
-          <div className={s.container}>
-             <p className={s.css}>
-                    Forma parte de la familia Kapolo</p>
-            <div className={s.formulario}>
-                  <form
-                    onSubmit={(e) => handleSubmit(e)}
-                    className={s.form}>
-                    <Input
-                      state={name}
-                      setState={setName}
-                      type="text"
-                      // label="First Name"
-                      placeholder="Nombre"
-                      // value={name}
-                      name="name"
-                      error="Your first name cannot contain numbers or special characters"
-                      regularExpression={expression.name}
-                    />
-                    <Input
-                      state={lastName}
-                      setState={setLastName}
-                      name="lastName"
-                      type="text"
-                      // label="Last Name"
-                      placeholder="Apellido"
-                      error="Your last name cannot contain numbers or special characters"
-                      regularExpression={expression.lastName}
-                    />
-                    <Input
-                      state={email}
-                      setState={setEmail}
-                      name="email"
-                      type="email"
-                      // label="E-mail"
-                      placeholder="Correo electrónico"
-                      error="Please enter a valid email"
-                      regularExpression={expression.email}
-                    />
-                    <Input
-                      state={phone}
-                      setState={setPhone}
-                      name="phone"
-                      type="number"
-                      // label="Phone"
-                      placeholder="Número de teléfono"
-                      error="Please enter a valid phone number"
-                      regularExpression={expression.phone}
-                    />
-                    <Input
-                      state={cedula}
-                      setState={setCedula}
-                      name="cedula"
-                      type="number"
-                      // label="Phone"
-                      placeholder="Cedula"
-                      error="Please enter a valid cedula"
-                      regularExpression={expression.cedula}
-                    />
-                    <Input
-                      state={direction}
-                      setState={setDirection}
-                      name="direction"
-                      type="text"
-                      // label="Phone"
-                      placeholder="Dirección"
-                      error="Please enter a valid direction"
-                      regularExpression={expression.direction}
-                    />
-                    <div className={s.boton}>
-                      <button
-                        className={s.botonguardar}
-                        type="submit"
-                        onClick={handleClick}
-                        > Guardar</button>
-                    </div>
-                  </form>
-              </div>
-            
-          
+      {isShown && <AlertSuccess />}
+      <img className={s.fondouno} src={fondok} alt="FONDO" />
+
+      <div className={s.container}>
+        <p className={s.css}>Forma parte de la familia Kapolo</p>
+        <div className={s.formulario}>
+          <form onSubmit={(e) => handleSubmit(e)} className={s.form}>
+            <Input
+              state={name}
+              setState={setName}
+              type="text"
+              // label="First Name"
+              placeholder="Nombre"
+              // value={name}
+              name="name"
+              error="Your first name cannot contain numbers or special characters"
+              regularExpression={expression.name}
+            />
+            <Input
+              state={lastName}
+              setState={setLastName}
+              name="lastName"
+              type="text"
+              // label="Last Name"
+              placeholder="Apellido"
+              error="Your last name cannot contain numbers or special characters"
+              regularExpression={expression.lastName}
+            />
+            <Input
+              state={email}
+              setState={setEmail}
+              name="email"
+              type="email"
+              // label="E-mail"
+              placeholder="Correo electrónico"
+              error="Please enter a valid email"
+              regularExpression={expression.email}
+            />
+            <Input
+              state={phone}
+              setState={setPhone}
+              name="phone"
+              type="number"
+              // label="Phone"
+              placeholder="Número de teléfono"
+              error="Please enter a valid phone number"
+              regularExpression={expression.phone}
+            />
+            <Input
+              state={cedula}
+              setState={setCedula}
+              name="cedula"
+              type="number"
+              // label="Phone"
+              placeholder="Cedula"
+              error="Please enter a valid cedula"
+              regularExpression={expression.cedula}
+            />
+            <Input
+              state={direction}
+              setState={setDirection}
+              name="direction"
+              type="text"
+              // label="Phone"
+              placeholder="Dirección"
+              error="Please enter a valid direction"
+              regularExpression={expression.direction}
+            />
+            <div className={s.boton}>
+              <button
+                className={s.botonguardar}
+                type="submit"
+                onClick={handleClick}
+              >
+                {" "}
+                Guardar
+              </button>
+            </div>
+          </form>
         </div>
-        <Footer/>
+      </div>
+      <div className={s.divFooter}>
+        <Footer />
+      </div>
     </>
   );
 }

@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 
-.footerContainer{
-    margin-top: 0px;
-}
-
-
 .css{
     font-size: 25px;
     color: #6C7287;
@@ -66,6 +61,12 @@
 
 .container{
     /* background-color: blue; */
+    /* background-color: red; */
+    /* height: 100%; */
+}
+
+.divFooter{
+    bottom: 0;
 }
 @media screen and (max-width: 992px){
     .boton{
@@ -76,7 +77,7 @@
     }
     .formulario{
         
-        height :70%;
+        height :100%;
         width: 70vw;
         margin-left: 10vh;
         
