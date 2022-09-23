@@ -5,8 +5,10 @@ export default function Footer() {
   return (
     <>
       <div className={s.footer}>
-        <h2>Instagram</h2>
-        <h2>Facebook</h2>
+      
+        <h2><i class='bx bxl-instagram'></i> Kapolofc</h2>
+       
+        <h2>  <i class='bx bxl-facebook-square'></i>Kapolo Family Care</h2>
       </div>
     </>
   );

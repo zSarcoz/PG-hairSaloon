@@ -1,3 +1,12 @@
+
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+     
+
+body{
+    width: 100%;
+    height:100%;
+}
+
 .landing{
     width: 100%;
     height: 90vh;
@@ -9,25 +18,43 @@
 
 .title{
     margin-top: 40px;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 600;
+    font-family:"Montserrat", sans-serif;
+    color:#6C7287;
+    
 }
 
-.img{
-    margin-top: 30px;
-    height: 500px;
-    width: 1000px;
 
+
+body{
+    background-color:#FCF6F0;
+}
+
+.fondo{
+    margin-top: 8vh;
+    height: 40vh;
+    width: 45vw;
+
+}
+.fondo{
+    
+    height: 50vh;
+    width: 100vw;
 }
 
 .description{
     margin-top: 30px;
     color: rgb(90, 90, 90);
+    font-family: "Montserrat", sans-serif;
 }
 
 .botones{
     display: flex;
-    margin-top: 20px;
+    margin-top: 8vh;
+   
+    
+    
 }
 
 button + button{
@@ -36,10 +63,22 @@ button + button{
 
 .btn{
     padding: 10px 30px;
-    border: 1px solid black;
     border-radius: 60px;
+    background-color: #adad57;
+    color: aliceblue;
+    font: weight 700px;
+    
+    
+}
+.btn2{
+    background-color:#824B62    ;
+    padding: 10px 30px;
+    border-radius: 60px;
+    color: aliceblue;
+    font: weight 700px;
 }
 
 .footerContainer{
-    bottom: 0px;
+    margin-top: 25vh;
+    
 }

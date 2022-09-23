@@ -4,6 +4,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { registerUser, getUsers, currentUser } from "../../redux/actions";
 import Input from "./Input";
+import fondok from "../styles/img/fkapolo.jpg";
+import s from "../styles/Register.module.css"
+import Footer from "../Footer";
 // import { Container, Row, Col } from "react-bootstrap";
 // import "./styles/style.css";
 // import "../styles/style.css";
@@ -85,60 +88,21 @@ export default function Register() {
 
   return (
     <>
-      <div className="ltn__body-font">
-        <div
-          class="ltn__breadcrumb-area ltn__breadcrumb-area-4 bg-overlay-theme-10--- bg-image"
-          // data-bg={bg}
-          data-bg="../assets/4.png"
-        >
-          {/* <img src={bg} alt="" /> */}
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="ltn__breadcrumb-inner ltn__breadcrumb-inner-4 justify-content-between">
-                  <div class="section-title-area">
-                    <h1 class="section-title white-color">Register</h1>
-                  </div>
-                  <div class="ltn__breadcrumb-list">
-                    <ul>
-                      <li>
-                        <a href="index.html">Home</a>
-                      </li>
-                      <li>Register</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="ltn__login-area pb-110">
+    <img className={s.fondouno} src={fondok} alt="FONDO" />
+    
           <div className="container">
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="section-title-area text-center">
-                  <h1 className="section-title">Register</h1>
-                  <h1 className="section-title">Your Account</h1>
-                  <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Sit aliquid, Non distinctio vel iste.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-6 offset-lg-3">
-                <div className="account-login-inner">
+             <p className={s.css}>
+                    Forma parte de la familia Kapolo</p>
+            <div className={s.formulario}>
                   <form
                     onSubmit={(e) => handleSubmit(e)}
-                    className="ltn__form-box contact-form-box"
-                  >
+                    className="ltn__form-box contact-form-box">
                     <Input
                       state={name}
                       setState={setName}
                       type="text"
                       // label="First Name"
-                      placeholder="First Name"
+                      placeholder="Nombre"
                       // value={name}
                       name="name"
                       error="Your first name cannot contain numbers or special characters"
@@ -150,7 +114,7 @@ export default function Register() {
                       name="lastName"
                       type="text"
                       // label="Last Name"
-                      placeholder="Last Name"
+                      placeholder="Apellido"
                       error="Your last name cannot contain numbers or special characters"
                       regularExpression={expression.lastName}
                     />
@@ -160,7 +124,7 @@ export default function Register() {
                       name="email"
                       type="email"
                       // label="E-mail"
-                      placeholder="E-mail"
+                      placeholder="Correo electrónico"
                       error="Please enter a valid email"
                       regularExpression={expression.email}
                     />
@@ -170,7 +134,7 @@ export default function Register() {
                       name="phone"
                       type="number"
                       // label="Phone"
-                      placeholder="Phone"
+                      placeholder="Número de teléfono"
                       error="Please enter a valid phone number"
                       regularExpression={expression.phone}
                     />
@@ -194,13 +158,10 @@ export default function Register() {
                       error="Please enter a valid direction"
                       regularExpression={expression.direction}
                     />
-                    <div className="btn-wrapper">
+                    <div className={s.boton}>
                       <button
-                        className="theme-btn-1 btn reverse-color btn-block"
-                        type="submit"
-                      >
-                        CREATE ACCOUNT
-                      </button>
+                        className="botonguardar"
+                        type="submit"> Guardar</button>
                     </div>
                   </form>
                   <div className="by-agree text-center">
@@ -211,21 +172,14 @@ export default function Register() {
                       PRIVACY POLICY
                     </a>
                   </p> */}
-                    <div className="go-to-btn mt-50">
-                      <Link to="/login">Already have an account? Log in</Link>
-                    </div>
-                    <div className="go-to-btn mt-50">
-                      <Link to="/register/employee">
-                        Eres parte de nuestro personal? Regisgrate aqui
-                      </Link>
-                    </div>
-                  </div>
+                    
+                  
                 </div>
               </div>
-            </div>
-          </div>
+            
+          
         </div>
-      </div>
+        <Footer/>
     </>
   );
 }
