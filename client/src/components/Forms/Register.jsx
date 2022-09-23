@@ -6,7 +6,7 @@ import { registerUser, getUsers, currentUser } from "../../redux/actions";
 import Input from "./Input";
 import fondok from "../styles/img/fkapolo.jpg";
 import s from "../styles/Register.module.css"
-import Footer from "../Footer";
+import Footer from "../Home/Footer";
 // import { Container, Row, Col } from "react-bootstrap";
 // import "./styles/style.css";
 // import "../styles/style.css";
