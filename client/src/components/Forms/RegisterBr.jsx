@@ -165,12 +165,7 @@ export default function RegisterBr() {
                     <h1 class="section-title white-color">Register</h1>
                   </div>
                   <div class="ltn__breadcrumb-list">
-                    <ul>
-                      <li>
-                        <a href="index.html">Home</a>
-                      </li>
-                      <li>Register</li>
-                    </ul>
+                    
                   </div>
                 </div>
               </div>
@@ -184,8 +179,7 @@ export default function RegisterBr() {
                     <h1 className="section-title">Register</h1>
                     <h1 className="section-title">Your Account</h1>
                     <p>
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                      Sit aliquid, Non distinctio vel iste.
+                      Forma parte de la familia Kapolo
                     </p>
                   </div>
                 </div>

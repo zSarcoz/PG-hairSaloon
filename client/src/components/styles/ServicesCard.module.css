@@ -1,71 +1,85 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap");
 
-.serviceCard{
+.serviceCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  height: 15vh;
+  /* margin: 5px; */
+  /* padding: 0px; */
+  color: #6c7287;
+  /* gap: 10px; */
+  overflow: hidden;
+  cursor: pointer;
+  /* background-color: pink; */
+}
+.serviceCard:focus {
+    box-shadow: 5px 10px 10px rgba(73, 73, 73, 0.432);
+    border-radius: 30px;
+    border: 1px solid rgb(126, 27, 27);
+    background-color: #8d8d8d41;
+}
+.servicesCardMan {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 20vw;
-    height: 20vh;
-    margin: 20px;
-    padding: 10px;
-    /* gap: 10px; */
-    /* border: 1px solid black; */
-    /* border-radius: 5px; */
-    /* box-shadow: 5px 10px 10px rgba(73, 73, 73, 0.87); */
-    overflow: hidden;
-    /* background-color: pink; */
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-color: rgba(240, 240, 240, 0.322); */
+  width: 20%;
+  height: 15vh;
+  margin: 0px 20px;
+  /* padding: 10px; */
+  color: #f97b51;
+  /* gap: 10px; */
+  /* border: 1px solid black; */
+  /* border-radius: 5px; */
+  /* box-shadow: 5px 10px 10px rgba(73, 73, 73, 0.87); */
+  overflow: hidden;
+  /* background-color: rgb(31, 111, 216); */
 }
-.servicesCardMan{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 20vw;
-    height: 20vh;
-    margin: 20px;
-    padding: 10px;
-    /* gap: 10px; */
-    /* border: 1px solid black; */
-    border-radius: 5px;
-    /* box-shadow: 5px 10px 10px rgba(73, 73, 73, 0.87); */
-    overflow: hidden;
-    /* background-color: rgb(31, 111, 216); */
+.servicesCardMan:focus {
+    box-shadow: 5px 10px 10px rgba(73, 73, 73, 0.432);
+    border-radius: 30px;
+    border: 1px solid rgb(126, 27, 27);
+    background-color: #8d8d8d41;
 }
 
-.logosServices{
-    height: 700px;
-    width: 700px;
+.logosServices {
+  height: 90px;
+  /* width: 700px; */
 }
 
-.name{
-    font-family: "Montserrat", sans-serif;
-    font-size: 20px;
-    letter-spacing: 2px;
-    font-weight: 800;
-    color: #6C7287;
+.name {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  letter-spacing: 2px;
+  font-weight: 900;
+  color: #6c7287;
 }
 
-.price{
-    font-family: "Montserrat", sans-serif;
-    font-size:14px;
-    letter-spacing: 1px;
-    font-weight: 500;
-    color: #6C7287;
+.price {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  color: #6c7287;
 }
 
-.nameM{
-    font-family: "Montserrat", sans-serif;
-    font-size: 20px;
-    letter-spacing: 2px;
-    font-weight: 800;
-    color: #F97B51;
+.nameM {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: 800;
+  /* color: #F97B51; */
 }
 
-.priceM{
-    font-family: "Montserrat", sans-serif;
-    font-size:14px;
-    letter-spacing: 1px;
-    font-weight: 500;
-    color: #F97B51;
+.priceM {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  /* color: #F97B51; */
 }
