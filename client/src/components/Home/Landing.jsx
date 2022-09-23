@@ -7,12 +7,13 @@ import Footer from "./Footer";
 import Login from "../Forms/Login";
 import s from "../styles/Landing.module.css";
 import img from "../styles/img/logoPrincipal.png";
-import fondo from "../styles/img/fondo.jpg";
+import fondo from "../styles/img/fondo.png";
 
 export default function Landing() {
   const dispatch = useDispatch();
   const navigate = useHistory();
   const [isShown, setIsShow] = useState(false);
+  console.log(isShown, setIsShow)
 
   useEffect(() => {
     dispatch(getUsers());
@@ -26,7 +27,13 @@ export default function Landing() {
 
   return (
     <>
-      {isShown && <Login />}
+      {isShown && (
+        <>
+        <button onClick={handleClick} className={s.btnLogin}>X</button>
+        <Login />
+        </>
+      )}
+      {/* {isShown && console.log(isShown, setIsShow)} */}
       <div className={s.landing}>
         <img className={s.fondo} src={fondo} alt="FONDOS" />
         <h1 className={s.title}>Vive la experiencia</h1>
