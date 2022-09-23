@@ -2,8 +2,6 @@ import React from "react";
 import s from "../styles/ServicesCard.module.css";
 
 export default function ServicesCard({ name, prices, subtipos, sexo, image }) {
-  console.log(image);
-  // console.log(name, prices, subtipos, sexo)
   return (
     <>
       

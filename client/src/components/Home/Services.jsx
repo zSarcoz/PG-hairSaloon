@@ -12,7 +12,7 @@ export default function Services() {
   const currentUser = useSelector((state) => state.currentUser);
   console.log("Current user form services", currentUser);
   const filterSex = useSelector((state) => state.filterBySexo);
-  console.log("filter", filterBySex);
+  console.log("filter", filterSex);
   console.log("allServices", allServices);
   const dispatch = useDispatch();
   const navigate = useHistory();
@@ -276,12 +276,14 @@ export default function Services() {
               </svg>
             </button>
           </div>
-          <div className={s.cards}>
+          { !filterSex.length ? "" :
+            <div className={s.cards}>
             {filterSex?.map((project, index) => {
               console.log(project);
               return <ServicesCard key={index} {...project} />;
             })}
           </div>
+          }
         <Footer color={"#6C7287"} />
         </div>
       </div>
