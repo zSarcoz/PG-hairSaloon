@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
     background-color: #ffffff60;
+    backdrop-filter: blur(7px);
     z-index: 100;
     position: absolute;
 }
