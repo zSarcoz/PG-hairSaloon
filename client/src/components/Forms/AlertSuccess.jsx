@@ -1,11 +1,13 @@
 import React from "react";
 import s from "../styles/AlertSuccess.module.css";
 import imgscs from "../styles/img/successIcon.png"
+import SVG from "../styles/svg/FONDOS-02.svg"
 
 export default function AlertSuccess() {
   return (
     <>
       <div className={s.body}>
+        <img src={SVG} alt="svg" />
         <div className={s.container}>
           <svg
             id="Isolation_Mode"

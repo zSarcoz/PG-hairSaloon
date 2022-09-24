@@ -1,10 +1,10 @@
 .body {
-    height: 100vh;
+    height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #ffffff60;
+    background-color: #c7000000;
     z-index: 100;
     position: absolute;
 }
@@ -15,7 +15,7 @@
     height: 25%;
     width: 50%;
     /* padding: 0px; */
-    position: relative;
+    position: absolute;
     box-shadow: 10px 10px 15px #0000004f;
     border-radius: 20px;
     background-color: #8CAB9C;
