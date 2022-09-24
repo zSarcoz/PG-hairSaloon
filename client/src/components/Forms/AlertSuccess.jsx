@@ -7,7 +7,7 @@ export default function AlertSuccess() {
   return (
     <>
       <div className={s.body}>
-        <img src={SVG} alt="svg" />
+        {/* <img src={SVG} alt="svg" /> */}
         <div className={s.container}>
           <svg
             id="Isolation_Mode"
