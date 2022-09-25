@@ -1,7 +1,6 @@
 const { Services} = require("../db.js");
 const { Router } = require("express");
 const allServices = require("../json/db_men.json")
-const allServicesW = require("../json/db_women.json")
 const router = Router();
 
 router.get("/allServices", async (req, res, next) => {
@@ -19,10 +18,10 @@ router.get("/allServices", async (req, res, next) => {
 
   router.post("/allServices", async(req, res, next) => {
     let servicios = allServices.services.map((service) => service)
-    console.log(servicios)
+    // console.log(servicios)
     try{
       servicios.forEach((ser) => {
-        console.log(ser.price)
+        // console.log(ser.price)
         Services.findOrCreate({
           where: {
             name: ser.name,
