@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getServices, setServices, filterBySex } from "../../redux/actions";
+// import CartContext from "../CartComponent/CartContext.jsx";
 import ServicesCard from "./ServicesCard";
 import Footer from "./Footer";
 import s from "../styles/Services.module.css";
@@ -16,6 +17,8 @@ export default function Services() {
   console.log("allServices", allServices);
   const dispatch = useDispatch();
   const navigate = useHistory();
+    /* Traemos del context la funcion para agregar un producto */
+    // const { addServiceToCart, products } = useContext(CartContext);
 
   useEffect(() => {
     dispatch(setServices());
