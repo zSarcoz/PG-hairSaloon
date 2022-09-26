@@ -1,65 +1,183 @@
 import { createContext, useEffect, useState } from "react";
-// import axios from "axios";
+import { addToCart} from "../../redux/actions";
+import { useSelector, useDispatch } from "react-redux";
+import { store } from "../../redux/store/index";
+import Swal from "sweetalert2";
 
-/* Creamos el context, se le puede pasar un valor inicial */
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  /* Creamos un estado para el carrito */
-  const [cartItems, setCartItems] = useState(() => {
+  // console.log("children of cartContext",children)
+  const [pay, setPay] = useState(false);
+  const userA = useSelector((state) => state.currentUserLocalStorage);
+  console.log("userA", userA);
+  const [products, setProducts] = useState(() => {
     try {
-      const servicesLocalStorage = localStorage.getItem("servicesCart");
-      return servicesLocalStorage ? JSON.parse(servicesLocalStorage) : [];
+      const productosLocalStorage = localStorage.getItem("cartProducts");
+      return productosLocalStorage ? JSON.parse(productosLocalStorage) : [];
+    } catch (error) {
+      return [];
+    }
+  });
+  const [user, setUser] = useState(() => {
+    try {
+      const userLocalStorage = localStorage.getItem("currentUserLocalStorage");
+      return userLocalStorage ? JSON.parse(userLocalStorage) : [];
     } catch (error) {
       return [];
     }
   });
 
   useEffect(() => {
-    localStorage.setItem("servicesCart", JSON.stringify(cartItems));
-    console.log("Esto es cartItems",cartItems)
-  }, [cartItems]);
+    // console.log("sera este el problema",products)
+    localStorage.setItem("currentUserLocalStorage", JSON.stringify(user));
+    if (!pay) localStorage.setItem("cartProducts", JSON.stringify(products));
+    setPay(false);
+    if (pay && products !== []) {
+      setTimeout(() => {
+        // setUser([]);
+        setProducts([]);
+      }, "3000");
+    }
+    console.log("user useState", user);
+    console.log("products", products);
+    // else localStorage.setItem("cartProducts", JSON.stringify([]))
 
-  const addServiceToCart = (service) => {
-    const inCart = cartItems.find(
-      (serviceInCart) => serviceInCart.id === service.id
-    );
-    if (inCart) {
-      setCartItems(
-        cartItems.map((serviceInCart) => {
-          if (serviceInCart.id === service.id) {
-            return { ...inCart, amount: serviceInCart.amount + 1 };
-          } else return serviceInCart;
+    // console.log(products)
+    // const cartProductArray = localStorage.getItem("cartProducts");
+  }, [products, pay, user]);
+
+  const addProductToCart = async ({
+    id,
+    name,
+    subtipos,
+    price,
+    sexo,
+    image,
+  }) => {
+    // console.log("tickets", tickets);
+    //console.log("esto es el products", products); //
+    let inCart = Array.isArray(products) && products.filter((p) => p.id === id);
+    console.log("incart", inCart);
+
+    if (inCart.length > 0) {
+      setProducts(
+        products.map((p) => {
+          if (p.id === id) {
+            if (p.amount) {
+              return { ...p, amount: p.amount + 1 };
+            } else {
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text:
+                  "You can't buy more tickets, there's not enough in stock " +
+                  p.amount,
+              });
+              return {
+                ...p,
+              };
+            }
+          } else
+            return {
+              ...p,
+            };
         })
       );
     } else {
-      setCartItems([...cartItems, { ...service, amount: 1 }]);
-    }
-  };
-  const deleteServiceFromCart = (service) => {
-    const inCart = cartItems.find(
-      (serviceInCart) => serviceInCart.id === service.id
-    );
-
-    if (inCart.amount === 1) {
-      setCartItems(
-        cartItems.filter((serviceInCart) => serviceInCart.id !== service.id)
+      setProducts([
+        ...products,
+        {
+          id,
+          name,
+          subtipos,
+          price,
+          sexo,
+          image,
+          amount: 1,
+        },
+      ]);
+      await store.dispatch(
+        addToCart({
+          id,
+          name,
+          subtipos,
+          price,
+          sexo,
+          image,
+          amount: 1,
+        })
       );
-    } else {
-      setCartItems((serviceInCart) => {
-        if (serviceInCart.id === service.id) {
-          return { ...inCart, amount: inCart.amount - 1 };
-        } else return serviceInCart;
-      });
     }
   };
+
+  function substractdProductFromCart(id, operacion) {
+    // let inCart = products && products.filter((p) => p.id === id);
+    // p.id === id
+
+    setProducts(
+      products.map((p) => {
+        if (p.id === id && p.amount > 1 && operacion === "resta") {
+          return {
+            ...p,
+            amount: p.amount - 1,
+          };
+        } else if (p.id === id && operacion === "suma") {
+          if (p.amount) {
+            console.log("este es tu amount", p.amount);
+            return {
+              ...p,
+              amount: p.amount + 1,
+            };
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Opps...",
+              text: "No stock available",
+              confirmButtonColor: "#3085d6",
+            });
+            return {
+              ...p,
+            };
+          }
+        } else {
+          return {
+            ...p,
+          };
+        }
+      })
+    );
+    localStorage.removeItem("cartProducts");
+  }
+
+  function deleteProductFromCart(id) {
+    setProducts(products.filter((p) => p.id !== id));
+  }
+  const createUser = (userA) => {
+    console.log("createUser", userA);
+    setUser([...user, {userA}]);
+    // store.dispatch(user);
+  };
+  // const createUser = ({id, name, lastName, direction, phone, cedula, email}) => {
+  //   console.log("createUser", userA);
+  //   setUser([...user, {id, name, lastName, direction, phone, cedula, email}]);
+  //   // store.dispatch(user);
+  // };
+
   return (
     <CartContext.Provider
-      value={{ cartItems, addServiceToCart, deleteServiceFromCart }}
+      value={{
+        addProductToCart,
+        substractdProductFromCart,
+        products,
+        setProducts,
+        deleteProductFromCart,
+        setPay,
+        createUser,
+      }}
     >
       {children}
     </CartContext.Provider>
   );
 };
-
-export default CartContext;
+export default CartProvider;

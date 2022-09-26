@@ -1,28 +1,35 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useContext } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { getServices, setServices, filterBySex } from "../../redux/actions";
+import { getServices, setServices, filterBySex, getUsers } from "../../redux/actions";
 // import CartContext from "../CartComponent/CartContext.jsx";
 import ServicesCard from "./ServicesCard";
 import Footer from "./Footer";
 import s from "../styles/Services.module.css";
 import FondoAlto from "../styles/img/fondoAlto.png";
+import Cart from "../CartComponent/Cart";
+import {CartContext} from "../CartComponent/CartContext.jsx"
+// import ItemCart from "../CartComponent/ItemCart.jsx";
 
 export default function Services() {
+  const {createUser} = useContext(CartContext);
   const allServices = useSelector((state) => state.services);
   const currentUser = useSelector((state) => state.currentUser);
+  const userA = useSelector((state) => state.currentUserLocalStorage);
   console.log("Current user form services", currentUser);
   const filterSex = useSelector((state) => state.filterBySexo);
-  console.log("filter", filterSex);
-  console.log("allServices", allServices);
+  // console.log("filter", filterSex);
+  // console.log("allServices", allServices);
   const dispatch = useDispatch();
   const navigate = useHistory();
-    /* Traemos del context la funcion para agregar un producto */
-    // const { addServiceToCart, products } = useContext(CartContext);
+  /* Traemos del context la funcion para agregar un producto */
+  // const { addServiceToCart, products } = useContext(CartContext);
 
   useEffect(() => {
     dispatch(setServices());
     dispatch(getServices());
+    dispatch(getUsers());
+    // dispatch(createUser(a))
   }, [dispatch]);
   let mujeres = allServices.filter((service) => service.sexo === "Consentidas");
   let hombres = allServices.filter((service) => service.sexo === "Consentidos");
@@ -43,6 +50,7 @@ export default function Services() {
   return (
     <>
       <div className={s.body}>
+        <Cart />
         <div className={s.container}>
           <div className={s.fondoImgSwd}>
             <img src={FondoAlto} alt="fondo" className={s.fondoImg} />

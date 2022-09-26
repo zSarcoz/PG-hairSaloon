@@ -1,13 +1,16 @@
-const initialSatate = {
-  // videogames: [],
-  // allVideogames: [],
-  // detail: [],
-  // genres: [],
-  // genresGet: [],
-  users: [],
-  currentUser: [],
-  filterBySexo: [],
-  barbers: [],
+  const initialSatate = {
+    // videogames: [],
+    // allVideogames: [],
+    // detail: [],
+    // genres: [],
+    // genresGet: [],
+    users: [],
+    currentUser: [],
+    currentUserLocalStorage: [],
+    cart: [],
+    shoppingCart:[],
+    filterBySexo: [],
+    barbers: [],
   services: [],
   error: "",
 };
@@ -22,6 +25,7 @@ export default function rootReducer(state = initialSatate, action) {
         users: action.payload,
       };
     }
+ 
     case "CURRENT_USER":
       console.log(state.users);
       let arr = state.users.filter((user) => user.cedula === Number(action.payload));
@@ -42,7 +46,8 @@ export default function rootReducer(state = initialSatate, action) {
       return {
         ...state,
         currentUser: arr,
-      };
+        currentUserLocalStorage: arr
+      };   
     case "REGISTER_USER": {
       return {
         ...state,
@@ -85,6 +90,29 @@ export default function rootReducer(state = initialSatate, action) {
         filterBySexo: action.payload
       }
     }
+
+    case "ADD_CART":
+      let tempcart = state.cart.filter((item) => item.id === action.payload);
+      console.log(tempcart)
+
+      if (tempcart < 1) {
+        let pushToCart = [...state.cart];
+        pushToCart.push(action.payload);
+        console.log(state.cart)
+        return {
+          ...state,
+          cart: pushToCart,
+        };
+      } else {
+        return state.cart;
+      }
+
+      case "ADD_TO_CART": {
+        return {
+          ...state,
+          shoppingCart: [...state.shoppingCart, action.payload],
+        };
+      }
     default:
       return state;
   }

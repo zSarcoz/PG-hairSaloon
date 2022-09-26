@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -8,6 +8,7 @@ import fondok from "../styles/img/fkapolo.png";
 import s from "../styles/Register.module.css";
 import Footer from "../Home/Footer";
 import AlertSuccess from "../Forms/AlertSuccess.jsx";
+import {CartContext} from "../CartComponent/CartContext.jsx"
 // import { Container, Row, Col } from "react-bootstrap";
 // import "./styles/style.css";
 // import "../styles/style.css";
@@ -18,6 +19,7 @@ import AlertSuccess from "../Forms/AlertSuccess.jsx";
 import bg from "../../assets/4.png";
 
 export default function Register() {
+  const {createUser} = useContext(CartContext);
   const error = useSelector((state) => state.error);
   const navigate = useHistory();
   const dispatch = useDispatch();
@@ -30,12 +32,6 @@ export default function Register() {
   const [email, setEmail] = useState({ value: "", valid: null });
   const [cedula, setCedula] = useState({ value: "", valid: null });
   const [direction, setDirection] = useState({ value: "", valid: null });
-  console.log(name);
-  console.log(lastName);
-  console.log(phone);
-  console.log(email);
-  console.log(cedula);
-  console.log(direction);
   const user = {
     name: name.value,
     lastName: lastName.value,
@@ -74,8 +70,8 @@ export default function Register() {
     ) {
       await dispatch(registerUser(user));
       await dispatch(currentUser(cedula.value));
-
       setTimeout(() => {
+        // dispatch(createUser(user));
         navigate.push("/services");
       }, 2000);
     } else {
