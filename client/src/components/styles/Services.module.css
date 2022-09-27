@@ -50,7 +50,8 @@
   justify-content: center;
   border-radius: 50%;
   height: 20vh;
-  width: 30vw;
+  width: 40vw;
+  /* background-color: red; */
   font-size: 30px;
   font-weight: 500;
   /* padding: 20px; */
@@ -59,18 +60,20 @@
   color: #6c7287;
   font-family: "Montserrat", sans-serif;
 }
-.st0 {
-    fill: #F97B51;
+.btn:focus {
+  height: 18vh;
+  width: 38vw;
+  box-shadow: 5px 5px 10px #00000027;
+  height: 100%;
 }
-.st1 {
-    fill: #ffffff;
-}
-.st2 {
-    fill: #6c7287;
+.btn:focus .btc {
+  height: 100%;
 }
 .btnC {
+  /* width: 10%; */
     height: 90%;
 }
+
 .logoBtn {
   display: flex;
   align-items: center;
