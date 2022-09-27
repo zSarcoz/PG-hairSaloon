@@ -22,14 +22,13 @@ export function currentUser(payload) {
     payload
   };
 }
-// export function currentUserLocalStorage(payload) {
-
-//   console.log("action current user local storage", payload)
-//   return {
-//     type: "CURRENT_USER_LOCAL_STORAGE",
-//     payload
-//   };
-// }
+export function currentUserLocalStorage(payload) {
+  console.log("action current user local storage", payload)
+  return {
+    type: "CURRENT_USER_LOCAL_STORAGE",
+    payload
+  };
+}
 
 export function registerUser(payload) {
   console.log("register payload", payload)

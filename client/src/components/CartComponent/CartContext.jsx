@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { addToCart} from "../../redux/actions";
+import { addToCart, currentUserLocalStorage} from "../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { store } from "../../redux/store/index";
 import Swal from "sweetalert2";
@@ -35,7 +35,7 @@ export const CartProvider = ({ children }) => {
     setPay(false);
     if (pay && products !== []) {
       setTimeout(() => {
-        // setUser([]);
+        setUser([]);
         setProducts([]);
       }, "3000");
     }
@@ -153,16 +153,17 @@ export const CartProvider = ({ children }) => {
   function deleteProductFromCart(id) {
     setProducts(products.filter((p) => p.id !== id));
   }
-  const createUser = (userA) => {
-    console.log("createUser", userA);
-    setUser([...user, {userA}]);
-    // store.dispatch(user);
-  };
-  // const createUser = ({id, name, lastName, direction, phone, cedula, email}) => {
+  // const createUser = ({id, name, las}) => {
   //   console.log("createUser", userA);
-  //   setUser([...user, {id, name, lastName, direction, phone, cedula, email}]);
+  //   setUser([...user, {userA}]);
   //   // store.dispatch(user);
   // };
+  const createUser = ({id, name, lastName, direction, phone, cedula, email}) => {
+    console.log("createUser", userA);
+    setUser({id, name, lastName, direction, phone, cedula, email});
+    console.log(user)
+    store.dispatch(currentUserLocalStorage({id, name, lastName, direction, phone, cedula, email}));
+  };
 
   return (
     <CartContext.Provider

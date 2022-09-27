@@ -8,15 +8,16 @@ import Footer from "./Footer";
 import s from "../styles/Services.module.css";
 import FondoAlto from "../styles/img/fondoAlto.png";
 import Cart from "../CartComponent/Cart";
-import {CartContext} from "../CartComponent/CartContext.jsx"
+// import {CartContext} from "../CartComponent/CartContext.jsx"
 // import ItemCart from "../CartComponent/ItemCart.jsx";
 
 export default function Services() {
-  const {createUser} = useContext(CartContext);
+  // const {createUser} = useContext(CartContext)
   const allServices = useSelector((state) => state.services);
   const currentUser = useSelector((state) => state.currentUser);
   const userA = useSelector((state) => state.currentUserLocalStorage);
   console.log("Current user form services", currentUser);
+
   const filterSex = useSelector((state) => state.filterBySexo);
   // console.log("filter", filterSex);
   // console.log("allServices", allServices);
@@ -24,12 +25,25 @@ export default function Services() {
   const navigate = useHistory();
   /* Traemos del context la funcion para agregar un producto */
   // const { addServiceToCart, products } = useContext(CartContext);
+  // const userLocal = userA.map(user => {
+  //   return {
+  //     name: user.name,
+  //     id: user.id,
+  //     email: user.email,
+  //     direction: user.direction,
+  //     lastName: user.lastName,
+  //     phone: user.phone,
+  //     cedula: user.cedula,
+  //   }
+  // })
+
+  // console.log(userLocal)s
 
   useEffect(() => {
     dispatch(setServices());
     dispatch(getServices());
     dispatch(getUsers());
-    // dispatch(createUser(a))
+    // dispatch(createUser(userLocal))
   }, [dispatch]);
   let mujeres = allServices.filter((service) => service.sexo === "Consentidas");
   let hombres = allServices.filter((service) => service.sexo === "Consentidos");

@@ -249,7 +249,7 @@ function Cart() {
     //     </div>
     //   )}
     // </div>
-    <div>Hola</div>
+    <div></div>
   );
 }
 

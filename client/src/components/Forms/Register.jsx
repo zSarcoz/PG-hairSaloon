@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { registerUser, getUsers, currentUser } from "../../redux/actions";
+import { registerUser, getUsers, currentUser, currentUserLocalStorage } from "../../redux/actions";
 import Input from "./Input";
 import fondok from "../styles/img/fkapolo.png";
 import s from "../styles/Register.module.css";
@@ -70,8 +70,9 @@ export default function Register() {
     ) {
       await dispatch(registerUser(user));
       await dispatch(currentUser(cedula.value));
+      // await dispatch(currentUserLocalStorage(user))
+      // await dispatch(createUser(user));
       setTimeout(() => {
-        // dispatch(createUser(user));
         navigate.push("/services");
       }, 2000);
     } else {
@@ -98,7 +99,7 @@ export default function Register() {
       <div className={s.container}>
         <p className={s.css}>Forma parte de la familia Kapolo</p>
         <div className={s.formulario}>
-          <form onSubmit={(e) => handleSubmit(e)} className={s.form}>
+          <form onSubmit={(e) => {handleSubmit(e), createUser(user)}} className={s.form}>
             <Input
               state={name}
               setState={setName}
