@@ -10,17 +10,12 @@ import Footer from "../Home/Footer";
 import Swal from "sweetalert2"
 import AlertSuccess from "../Forms/AlertSuccess.jsx";
 import {CartContext} from "../CartComponent/CartContext.jsx"
-// import { Container, Row, Col } from "react-bootstrap";
-// import "./styles/style.css";
-// import "../styles/style.css";
-// // import "./styles/font-icons.css";
-// import "../styles/plugins.css";
-// import "../styles/responsive.css";
-// import bg from "../assets/4.png";
 import bg from "../../assets/4.png";
 
 export default function Register() {
-  const {createUser} = useContext(CartContext);
+  // const { createUser, users, products } = useContext(CartContext);
+
+  const userA = useSelector((state) => state.currentUser) 
   const error = useSelector((state) => state.error);
   const navigate = useHistory();
   const dispatch = useDispatch();
@@ -34,7 +29,7 @@ export default function Register() {
   const [email, setEmail] = useState({ value: "", valid: null });
   const [cedula, setCedula] = useState({ value: "", valid: null });
   const [direction, setDirection] = useState({ value: "", valid: null });
-  const user = {
+  const user1 = {
     name: name.value,
     lastName: lastName.value,
     email: email.value,
@@ -70,10 +65,11 @@ export default function Register() {
       // password.valid === 'true' &&
       // password2.value === password.value
     ) {
-      await dispatch(registerUser(user));
+      await dispatch(registerUser(user1));
       await dispatch(currentUser(cedula.value));
       setIsShow(true)
       setTimeout(() => {
+        // createUser(userA[0])
         navigate.push("/services");
       }, 2000);
     } else {
@@ -99,7 +95,7 @@ export default function Register() {
       <div className={s.container}>
         <p className={s.css}>Forma parte de la familia Kapolo</p>
         <div className={s.formulario}>
-          <form onSubmit={(e) => {handleSubmit(e), createUser(user)}} className={s.form}>
+          <form onSubmit={(e) => handleSubmit(e)} className={s.form}>
             <Input
               state={name}
               setState={setName}

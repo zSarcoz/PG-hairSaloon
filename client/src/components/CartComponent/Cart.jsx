@@ -15,7 +15,7 @@ function Cart() {
   const services = useSelector((state) => state.services);
   // console.log(airlines)
   const currentUser=useSelector(state=>state.currentUser)
-  console.log("current user from cart",currentUser)
+  // console.log("current user from cart",currentUser)
   const history = useHistory();
   const dispatch = useDispatch();
 

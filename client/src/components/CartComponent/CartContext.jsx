@@ -10,7 +10,6 @@ export const CartProvider = ({ children }) => {
   // console.log("children of cartContext",children)
   const [pay, setPay] = useState(false);
   const userA = useSelector((state) => state.currentUserLocalStorage);
-  console.log("userA", userA);
   const [products, setProducts] = useState(() => {
     try {
       const productosLocalStorage = localStorage.getItem("cartProducts");
@@ -19,33 +18,33 @@ export const CartProvider = ({ children }) => {
       return [];
     }
   });
-  const [user, setUser] = useState(() => {
+  const [users, setUser] = useState(() => {
     try {
-      const userLocalStorage = localStorage.getItem("currentUserLocalStorage");
+      const userLocalStorage = localStorage.getItem("currentUserLocal");
       return userLocalStorage ? JSON.parse(userLocalStorage) : [];
     } catch (error) {
       return [];
     }
   });
-
+  
   useEffect(() => {
     // console.log("sera este el problema",products)
-    localStorage.setItem("currentUserLocalStorage", JSON.stringify(user));
+    localStorage.setItem("currentUserLocal", JSON.stringify(users));
     if (!pay) localStorage.setItem("cartProducts", JSON.stringify(products));
     setPay(false);
-    if (pay && products !== []) {
+    if (pay && products && users !== []) {
       setTimeout(() => {
         setUser([]);
         setProducts([]);
       }, "3000");
     }
-    console.log("user useState", user);
+    console.log("user local cartContext", users);
     console.log("products", products);
     // else localStorage.setItem("cartProducts", JSON.stringify([]))
 
     // console.log(products)
     // const cartProductArray = localStorage.getItem("cartProducts");
-  }, [products, pay, user]);
+  }, [products, pay, users]);
 
   const addProductToCart = async ({
     id,
@@ -153,17 +152,17 @@ export const CartProvider = ({ children }) => {
   function deleteProductFromCart(id) {
     setProducts(products.filter((p) => p.id !== id));
   }
-  // const createUser = ({id, name, las}) => {
-  //   console.log("createUser", userA);
-  //   setUser([...user, {userA}]);
-  //   // store.dispatch(user);
-  // };
-  const createUser = ({id, name, lastName, direction, phone, cedula, email}) => {
-    console.log("createUser", userA);
-    setUser({id, name, lastName, direction, phone, cedula, email});
-    console.log(user)
-    store.dispatch(currentUserLocalStorage({id, name, lastName, direction, phone, cedula, email}));
+  const createUser = async ({id, name, lastName, email, direction, phone, cedula}) => {
+    setUser([...users, {id, name, lastName, email, direction, phone, cedula}]);
+    console.log("createUser", users);
+    await store.dispatch(currentUserLocalStorage({id, name, lastName, email, direction, phone, cedula}));
   };
+  // const createUser = ({props}) => {
+  //   console.log("createUser", user);
+  //   setUser([...user ,{props}]);
+  //   console.log(user)
+  //   store.dispatch(currentUserLocalStorage(props));
+  // };
 
   return (
     <CartContext.Provider
@@ -171,6 +170,7 @@ export const CartProvider = ({ children }) => {
         addProductToCart,
         substractdProductFromCart,
         products,
+        users,
         setProducts,
         deleteProductFromCart,
         setPay,

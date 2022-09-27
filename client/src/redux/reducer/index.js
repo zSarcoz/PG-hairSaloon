@@ -48,12 +48,12 @@ export default function rootReducer(state = initialSatate, action) {
         currentUser: arr,
         currentUserLocalStorage: arr
       };   
-    case "CURRENT_USER_LOCAL_STORAGE": {
-      return {
-        ...state,
-        currentUserLocalStorage: action.payload
-      }
-    }
+    // case "CURRENT_USER_LOCAL_STORAGE": {
+    //   return {
+    //     ...state,
+    //     currentUserLocalStorage: [action.payload]
+    //   }
+    // }
     case "REGISTER_USER": {
       return {
         ...state,

@@ -13,7 +13,6 @@ export default function Landing() {
   const dispatch = useDispatch();
   const navigate = useHistory();
   const [isShown, setIsShow] = useState(false);
-  console.log(isShown, setIsShow)
 
   useEffect(() => {
     dispatch(getUsers());
