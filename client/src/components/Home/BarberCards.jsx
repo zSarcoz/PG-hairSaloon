@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getBarbers } from "../../redux/actions";
 import {CartContext} from "../CartComponent/CartContext.jsx"
@@ -11,7 +11,19 @@ export default function BarberCards({
   email,
   phone,
   available,
+  checkIn
 }) {
+  const dispatch = useDispatch();
+  const [barberSelected, setBarberSelected] = useState([])
+
+  useEffect(()=>{
+    dispatch(getBarbers())
+  },[dispatch])
+
+  const handleSelect = async function (barber) {
+    setBarberSelected(barber)
+    console.log("soy barber hp",barber)
+  }
   const { addProductToCart } = useContext(CartContext);
   const barberInfo = {  
     name,
@@ -19,6 +31,7 @@ export default function BarberCards({
     email,
     phone,
     available,
+    checkIn
   };
   return (
     <>
@@ -47,7 +60,7 @@ export default function BarberCards({
                 : "No estoy disponible"}
             </span>
           </p>
-          <button onClick={() => addProductToCart(barberInfo)}>
+          <button onClick={() => {addProductToCart(barberInfo), handleSelect(barberInfo)}}>
             Quiero este barbero
           </button>
         </div>

@@ -10,6 +10,10 @@ module.exports = (sequelize) => {
       allowNull:false,// Hago el campo obligatorio
       primaryKey: true
     },
+    // userId:{
+    //   type:DataTypes.INTEGER,
+    //   allowNull:false
+    // },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -33,8 +37,8 @@ module.exports = (sequelize) => {
     checkIn:{
         type: DataTypes.DATEONLY,
         defaultValue: DataTypes.NOW,
-        allowNull: false
     },
+
     permissions:{
       type: DataTypes.BOOLEAN,
       defaultValue: true

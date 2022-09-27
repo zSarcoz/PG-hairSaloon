@@ -41,7 +41,7 @@ router.post("/", async (req, res) => {
       password: hashFun,
       cedula: cedula,
       phone: phone,
-      checkIn: checkIn
+      // checkIn: checkIn
     });
     return res.status(201).json(barberCreated);
   } catch (error) {
