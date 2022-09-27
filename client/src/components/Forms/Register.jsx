@@ -7,6 +7,7 @@ import Input from "./Input";
 import fondok from "../styles/img/fkapolo.png";
 import s from "../styles/Register.module.css";
 import Footer from "../Home/Footer";
+import Swal from "sweetalert2"
 import AlertSuccess from "../Forms/AlertSuccess.jsx";
 import {CartContext} from "../CartComponent/CartContext.jsx"
 // import { Container, Row, Col } from "react-bootstrap";
@@ -25,6 +26,7 @@ export default function Register() {
   const dispatch = useDispatch();
   const [errors, setErrors] = useState({});
   const [isShown, setIsShow] = useState(false);
+  console.log(isShown)
 
   const [name, setName] = useState({ value: "", valid: null });
   const [lastName, setLastName] = useState({ value: "", valid: null });
@@ -40,7 +42,7 @@ export default function Register() {
     direction: direction.value,
     cedula: cedula.value,
   };
-  console.log("name1 should be: ", user.name);
+  // console.log("name1 should be: ", user.name);
 
   const expression = {
     name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
@@ -70,20 +72,18 @@ export default function Register() {
     ) {
       await dispatch(registerUser(user));
       await dispatch(currentUser(cedula.value));
-      // await dispatch(currentUserLocalStorage(user))
-      // await dispatch(createUser(user));
+      setIsShow(true)
       setTimeout(() => {
         navigate.push("/services");
       }, 2000);
     } else {
-      // Swal.fire({
-      //   icon: "question",
-      //   title: "Oops...",
-      //   text: "Complete all fields",
-      //   confirmButtonColor: "#10408F",
-      // });
-      alert("fill the blanks");
-    }
+      setIsShow(false)
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Completa todos los campos",
+        confirmButtonColor: "#10408F",
+      });    }
   }
 
   const handleClick = (e) => {
@@ -108,7 +108,7 @@ export default function Register() {
               placeholder="Nombre"
               // value={name}
               name="name"
-              error="Your first name cannot contain numbers or special characters"
+              error="Tu nombre no puede contener números o carácteres especiales"
               regularExpression={expression.name}
             />
             <Input
@@ -118,7 +118,7 @@ export default function Register() {
               type="text"
               // label="Last Name"
               placeholder="Apellido"
-              error="Your last name cannot contain numbers or special characters"
+              error="Tu apellido no puede contener números o carácteres especiales"
               regularExpression={expression.lastName}
             />
             <Input
@@ -128,7 +128,7 @@ export default function Register() {
               type="email"
               // label="E-mail"
               placeholder="Correo electrónico"
-              error="Please enter a valid email"
+              error="Por favor ingresa un correo válido"
               regularExpression={expression.email}
             />
             <Input
@@ -138,7 +138,7 @@ export default function Register() {
               type="number"
               // label="Phone"
               placeholder="Número de teléfono"
-              error="Please enter a valid phone number"
+              error="Por favor ingresa un número válido"
               regularExpression={expression.phone}
             />
             <Input
@@ -148,7 +148,7 @@ export default function Register() {
               type="number"
               // label="Phone"
               placeholder="Cedula"
-              error="Please enter a valid cedula"
+              error="Por favor ingresa una cédula válida"
               regularExpression={expression.cedula}
             />
             <Input
@@ -158,7 +158,7 @@ export default function Register() {
               type="text"
               // label="Phone"
               placeholder="Dirección"
-              error="Please enter a valid direction"
+              error="Por favor ingresa una dirección válida"
               regularExpression={expression.direction}
             />
             <div className={s.boton}>

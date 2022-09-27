@@ -39,7 +39,8 @@ function Input({
     <div>
       <label valid={state.valid}>{label}</label>
       <input
-        className={s.input}
+        // {state.valid === "false" && error ? className={s.inputError} : className={s.in}}
+        className={state.valid === "false" && error ? s.inputError : s.input}
         id={name}
         type={type}
         placeholder={placeholder}
@@ -49,16 +50,6 @@ function Input({
         onKeyUp={validate}
         valid={state.valid}
       />
-      {/* <input
-        id={name}
-        type={type}
-        placeholder={placeholder}
-        value={state.value}
-        // valid={state.valid}
-        // name="name"
-        onChange={handleInputChange}
-      /> */}
-
       {state.valid === "false" && error ? (
         <span valid={state.valid} className={s.spanError}>{error}</span>
       ) : (

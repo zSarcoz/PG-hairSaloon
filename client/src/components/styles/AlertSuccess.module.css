@@ -4,9 +4,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #c7000000;
+    background-color: #ffffff60;
+    backdrop-filter: blur(7px);
     z-index: 100;
-    position: absolute;
+    position: fixed;
 }
 .container {
     display: flex;
