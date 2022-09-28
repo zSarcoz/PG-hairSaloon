@@ -73,7 +73,7 @@ export default function Services() {
               <div className={s.botones}>
                 <button
                   className={s.btn}
-                  onClick={() => handleOnclick("Consentidas")}
+                  onClick={() => handleOnclick("Consentidas")} 
                 >
                   {/* • Consentidas • */}
                   <img className={s.btnC} src={consentidas} alt="icon" />
