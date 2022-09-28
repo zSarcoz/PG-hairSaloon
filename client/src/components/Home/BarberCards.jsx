@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getBarbers } from "../../redux/actions";
+import {CartContext} from "../CartComponent/CartContext.jsx"
 import s from "../styles/BarberCards.module.css";
 import imgBarber from "../styles/img/barber.jpg";
 
@@ -10,7 +11,28 @@ export default function BarberCards({
   email,
   phone,
   available,
+  checkIn
 }) {
+  const dispatch = useDispatch();
+  const [barberSelected, setBarberSelected] = useState([])
+
+  useEffect(()=>{
+    dispatch(getBarbers())
+  },[dispatch])
+
+  const handleSelect = async function (barber) {
+    setBarberSelected(barber)
+    console.log("soy barber hp",barber)
+  }
+  const { addProductToCart } = useContext(CartContext);
+  const barberInfo = {  
+    name,
+    lastName,
+    email,
+    phone,
+    available,
+    checkIn
+  };
   return (
     <>
       {/* <div>{current.name}</div> */}
@@ -27,7 +49,10 @@ export default function BarberCards({
             <span>
               {name} {lastName}
             </span>
-            <span>Email: <br/>{email}</span>
+            <span>
+              Email: <br />
+              {email}
+            </span>
             <span>Telefono: {phone}</span>
             <span>
               {available
@@ -35,6 +60,9 @@ export default function BarberCards({
                 : "No estoy disponible"}
             </span>
           </p>
+          <button onClick={() => {addProductToCart(barberInfo), handleSelect(barberInfo)}}>
+            Quiero este barbero
+          </button>
         </div>
       </div>
 

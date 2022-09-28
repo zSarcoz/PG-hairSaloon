@@ -17,7 +17,7 @@ export default function RegisterBr() {
   const [phone, setPhone] = useState({ value: "", valid: null });
   const [email, setEmail] = useState({ value: "", valid: null });
   const [cedula, setCedula] = useState({ value: "", valid: "true" });
-  const [checkIn, setCheckIn] = useState({ value: "", valid: "true" });
+  // const [checkIn, setCheckIn] = useState({ value: "", valid: "true" });
   const [password, setPassword] = useState({ value: "", valid: null });
   const [password2, setPassword2] = useState({ value: "", valid: null });
   console.log(name);
@@ -25,7 +25,7 @@ export default function RegisterBr() {
   console.log(phone);
   console.log(email);
   console.log(cedula);
-  console.log(checkIn);
+  // console.log(checkIn);
   console.log(password);
   console.log(password2);
 
@@ -36,7 +36,7 @@ export default function RegisterBr() {
     email: email.value,
     phone: phone.value,
     password: password.value,
-    checkIn: checkIn.value,
+    // checkIn: checkIn.value,
     cedula: cedula.value,
   };
   const expression = {
@@ -68,7 +68,7 @@ export default function RegisterBr() {
       await dispatch(registerBarber(user));
       // await dispatch(currentUser(cedula.value));
 
-      navigate.push("/");
+      navigate.push("/barbers");
     } else {
       // Swal.fire({
       //   icon: "question",
@@ -242,7 +242,7 @@ export default function RegisterBr() {
                         error="Please enter a valid cedula"
                         regularExpression={expression.cedula}
                       />
-                      <Input
+                      {/* <Input
                         state={checkIn}
                         setState={setCheckIn}
                         name="checkIn"
@@ -251,7 +251,7 @@ export default function RegisterBr() {
                         placeholder="checkIn"
                         // error="Please enter a valid direction"
                         // regularExpression={expression.checkIn}
-                      />
+                      /> */}
                       <Input
                         state={password}
                         setState={setPassword}

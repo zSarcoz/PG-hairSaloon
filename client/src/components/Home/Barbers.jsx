@@ -7,6 +7,7 @@ import s from "../styles/Barbers.module.css";
 
 export default function Barbers() {
   const allBarbers = useSelector((state) => state.barbers);
+  const currentUser = useSelector((state) => state.currentUser);
   const dispatch = useDispatch();
   const navigate = useHistory();
 
