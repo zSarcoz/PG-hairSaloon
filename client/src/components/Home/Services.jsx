@@ -36,7 +36,7 @@ export default function Services() {
     dispatch(getUsers());
     setTimeout(() => {
       createUser(currentUser[0]);
-    }, 2000)
+    }, 1000)
   }, [dispatch]);
   let mujeres = allServices.filter((service) => service.sexo === "Consentidas");
   let hombres = allServices.filter((service) => service.sexo === "Consentidos");
