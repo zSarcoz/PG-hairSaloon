@@ -45,21 +45,30 @@ router.get("/", async (req, res, next) => {
 // });
 
 router.post("/", async (req, res) => {
-  const { name, lastName, email, cedula, direction,/* password,*/ phone } =
+  const { name, lastName, email, cedula, direction, /* password,*/ phone } =
     req.body;
   // const hashFun = await hash(password);
   try {
-    let userCreated = await User.create({
-      name: name,
-      lastName: lastName,
-      email: email,
-      // password: password,
-      // password: hashFun,
-      cedula: cedula,
-      direction: direction,
-      phone: phone,
-    });
-    return res.status(201).json(userCreated);
+    if (cedula) {
+      let user = await User.findAll({
+        where: { cedula: cedula },
+      });
+      if (user.length) {
+        return res.status(201).send("user already created");
+      } else {
+        let userCreated = await User.create({
+          name: name,
+          lastName: lastName,
+          email: email,
+          // password: password,
+          // password: hashFun,
+          cedula: cedula,
+          direction: direction,
+          phone: phone,
+        });
+        return res.status(201).json(userCreated);
+      }
+    }
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

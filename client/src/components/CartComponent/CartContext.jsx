@@ -150,19 +150,14 @@ export const CartProvider = ({ children }) => {
   }
 
   function deleteProductFromCart(id) {
+    console.log(id)
     setProducts(products.filter((p) => p.id !== id));
   }
   const createUser = async ({id, name, lastName, email, direction, phone, cedula}) => {
-    setUser([...users, {id, name, lastName, email, direction, phone, cedula}]);
+    setUser([{id, name, lastName, email, direction, phone, cedula}]);
     console.log("createUser", users);
-    await store.dispatch(currentUserLocalStorage({id, name, lastName, email, direction, phone, cedula}));
+    await store.dispatch(currentUserLocalStorage());
   };
-  // const createUser = ({props}) => {
-  //   console.log("createUser", user);
-  //   setUser([...user ,{props}]);
-  //   console.log(user)
-  //   store.dispatch(currentUserLocalStorage(props));
-  // };
 
   return (
     <CartContext.Provider

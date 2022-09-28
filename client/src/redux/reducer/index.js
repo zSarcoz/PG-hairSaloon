@@ -90,7 +90,7 @@ export default function rootReducer(state = initialSatate, action) {
       };
     }
     case "FILTER_BY_SEX": {
-      console.log("state from filter", state.filterBySexo)
+      // console.log("state from filter", state.filterBySexo)
       return {
         ...state,
         filterBySexo: action.payload
