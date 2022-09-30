@@ -29,6 +29,20 @@ export function currentUserLocalStorage(payload) {
     payload
   };
 }
+export function currentBarber(payload) {
+  // console.log("action current user", payload)
+  return {
+    type: "CURRENT_BARBER",
+    payload
+  };
+}
+export function currentBarberLocalStorage(payload) {
+  console.log("action current barber local storage", payload)
+  return {
+    type: "CURRENT_BARBER_LOCAL_STORAGE",
+    payload
+  };
+}
 
 export function registerUser(payload) {
   console.log("register payload", payload)

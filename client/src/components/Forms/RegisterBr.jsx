@@ -20,14 +20,14 @@ export default function RegisterBr() {
   // const [checkIn, setCheckIn] = useState({ value: "", valid: "true" });
   const [password, setPassword] = useState({ value: "", valid: null });
   const [password2, setPassword2] = useState({ value: "", valid: null });
-  console.log(name);
-  console.log(lastName);
-  console.log(phone);
-  console.log(email);
-  console.log(cedula);
-  // console.log(checkIn);
-  console.log(password);
-  console.log(password2);
+  // console.log(name);
+  // console.log(lastName);
+  // console.log(phone);
+  // console.log(email);
+  // console.log(cedula);
+  // // console.log(checkIn);
+  // console.log(password);
+  // console.log(password2);
 
 
   const user = {
