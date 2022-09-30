@@ -7,6 +7,8 @@
     users: [],
     currentUser: [],
     currentUserLocalStorage: [],
+    currentBarber: [],
+    currentBarberLocalStorage: [],
     cart: [],
     shoppingCart:[],
     filterBySexo: [],
@@ -48,12 +50,20 @@ export default function rootReducer(state = initialSatate, action) {
         currentUser: arr,
         currentUserLocalStorage: arr
       };   
-    // case "CURRENT_USER_LOCAL_STORAGE": {
+    // case "CURRENT_BARBER":
+    //   console.log(state.users);
+    //   let barberArr = state.barbers.filter((barber) => barber.cedula === Number(action.payload));
     //   return {
     //     ...state,
-    //     currentUserLocalStorage: [action.payload]
-    //   }
-    // }
+    //     currentBarber: barberArr,
+    //     currentBarberLocalStorage: barberArr
+    //   };   
+    case "CURRENT_BARBER_LOCAL_STORAGE": {
+      return {
+        ...state,
+        currentBarberLocalStorage: [action.payload]
+      }
+    }
     case "REGISTER_USER": {
       return {
         ...state,

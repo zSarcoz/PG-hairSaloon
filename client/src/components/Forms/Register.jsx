@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { registerUser, getUsers, currentUser, currentUserLocalStorage } from "../../redux/actions";
 import Input from "./Input";
-import fondok from "../styles/img/fkapolo.png";
+import fondok from "../styles/SVG/FONDOS-02.svg"
 import s from "../styles/Register.module.css";
 import Footer from "../Home/Footer";
 import Swal from "sweetalert2"
