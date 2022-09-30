@@ -50,6 +50,7 @@ body{
     color: #6C7287;
     font-family: "Montserrat", sans-serif;
     font-size: 2rem;
+    font-weight: 500;
 }
 
 .botones{
@@ -68,17 +69,25 @@ Link + Link{
     background-color: #adad57;
     color: aliceblue;
     font: weight 700px;
-    
-    
+    font-size: 1.2rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.411);
 }
 .btn2{
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.411);
     background-color:#824B62    ;
     padding: 13px 40px;
     border-radius: 60px;
     color: aliceblue;
     font: weight 700px;
+    font-size: 1.2rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
 }
+
 .btnLogin {
+    /* animation: fadeOut 0.5s; */
     position: absolute;
     height: 50px;
     width: 50px;
@@ -98,3 +107,7 @@ Link + Link{
     margin-top: 25vh;
     
 }
+/* @keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+} */

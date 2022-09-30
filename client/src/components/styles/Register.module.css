@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 
 .css{
-    font-size: 25px;
+    font-size: 2.3rem;
     color: #6C7287;
-    margin-bottom: 5vh;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    font-family: "Nekst";
 }
 .fondouno{
     position: relative;

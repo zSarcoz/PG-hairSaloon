@@ -38,7 +38,6 @@ module.exports = (sequelize) => {
         type: DataTypes.DATEONLY,
         defaultValue: DataTypes.NOW,
     },
-
     permissions:{
       type: DataTypes.BOOLEAN,
       defaultValue: true
