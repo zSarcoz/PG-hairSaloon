@@ -15,6 +15,10 @@
   height: 100vh;
   background-color: #fcf6f0;
 }
+.body1 {
+  height: 100%;
+  background-color: #fcf6f0;
+}
 
 .container {
   display: flex;
@@ -37,7 +41,7 @@
   color: #6c7287;
   font-family: "Montserrat", sans-serif;
   letter-spacing: 2px;
-  margin-bottom: 2%;
+  margin-bottom: 3%;
 }
 .fondoImg {
     margin-top: -19px;
@@ -117,4 +121,13 @@
   background-color: rgb(255, 255, 255);
   border-radius: 50px;
   justify-content: center;
+}
+.btnOk {
+  background-color: #824B62;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  color: white;
+  letter-spacing: 1px;
+  padding: 2% 2%;
+  border-radius: 15%;
 }

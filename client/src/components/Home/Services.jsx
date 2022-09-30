@@ -23,9 +23,9 @@ export default function Services() {
   const [isDisplayed, setIsDisplayed] = useState(false);
   const [touch, setTouch] = useState(false);
   const [touch1, setTouch1] = useState(false);
-  
+
   const allServices = useSelector((state) => state.services);
-  const currentUser = useSelector((state) => state.currentUser);  
+  const currentUser = useSelector((state) => state.currentUser);
   const filterSex = useSelector((state) => state.filterBySexo);
   const dispatch = useDispatch();
   const navigate = useHistory();
@@ -37,7 +37,7 @@ export default function Services() {
     createUser(currentUser[0]);
     setTimeout(() => {
       setIsDisplayed(true);
-    }, 250)
+    }, 250);
   }, [dispatch]);
   let mujeres = allServices.filter((service) => service.sexo === "Consentidas");
   let hombres = allServices.filter((service) => service.sexo === "Consentidos");
@@ -62,9 +62,9 @@ export default function Services() {
         <></>
       ) : !users.length ? (
         navigate.push("/")
-      ) : ( 
+      ) : (
         <>
-          <div className={s.body}>
+          <div className={filterSex.length ? s.body1 : s.body}>
             <Cart />
             <div className={s.container}>
               <div className={s.fondoImgSwd}>
@@ -76,14 +76,22 @@ export default function Services() {
               <div className={s.botones}>
                 <button
                   className={touch === true ? s.btnT : s.btn}
-                  onClick={() => {handleOnclick("Consentidas"), setTouch(true), setTouch1(false)}} 
+                  onClick={() => {
+                    handleOnclick("Consentidas"),
+                      setTouch(true),
+                      setTouch1(false);
+                  }}
                 >
                   {/* • Consentidas • */}
                   <img className={s.btnC} src={consentidas} alt="icon" />
                 </button>
                 <button
                   className={touch1 === true ? s.btnT : s.btn}
-                  onClick={() => {handleOnclick("Consentidos"), setTouch1(true), setTouch(false)}}
+                  onClick={() => {
+                    handleOnclick("Consentidos"),
+                      setTouch1(true),
+                      setTouch(false);
+                  }}
                 >
                   {/* • Consentidos • */}
                   {/* xmlns="<http://www.w3.org/2000/svg>" */}
@@ -93,16 +101,19 @@ export default function Services() {
               {!filterSex.length ? (
                 ""
               ) : (
-                <div className={s.cards}>
-                  {filterSex?.map((project, index) => {
-                    // console.log(project);
-                    return <ServicesCard key={index} {...project} />;
-                  })}
-                </div>
+                <>
+                  <div className={s.cards}>
+                    {filterSex?.map((project, index) => {
+                      // console.log(project);
+                      return <ServicesCard key={index} {...project} />;
+                    })}
+                  </div>
+                  <button onClick={() => navigate.push("/barbers")} className={s.btnOk}>OK</button>
+                </>
               )}
             </div>
+            <Footer color={"#6C7287"} />
           </div>
-          <Footer color={"#6C7287"} />
         </>
       )}
     </>

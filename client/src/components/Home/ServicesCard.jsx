@@ -28,7 +28,9 @@ export default function ServicesCard({
       >
         <button
           className={touch === true ? s.addCartBtnT : s.addCartBtn}
-          onClick={() => {addProductToCart(servicesInfo), setTouch(true)}}
+          onClick={() => {
+            addProductToCart(servicesInfo), setTouch(true);
+          }}
         >
           <img className={s.logosServices} src={image} alt="icon" />
           <h1 className={sexo === "Consentidas" ? s.name : s.nameM}>{name}</h1>
@@ -36,7 +38,18 @@ export default function ServicesCard({
             Desde: ${prices[0]}
           </h3>
         </button>
-        <button className={s.deleteCartBtn} onClick={() => {deleteProductFromCart(id), setTouch(false)}}>X</button>
+        {touch === true ? (
+          <button
+            className={s.deleteCartBtn}
+            onClick={() => {
+              deleteProductFromCart(id), setTouch(false);
+            }}
+          >
+            X
+          </button>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );
