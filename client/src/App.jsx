@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import ErrorNotFound from "./components/ErrorNotFound";
 import Register from "./components/Forms/Register";
 import RegisterBr from "./components/Forms/RegisterBr";
-import AlertSuccess from "./components/Forms/AlertSuccess.jsx";
+import AlertOrder from "./components/Forms/AlertOrder.jsx";
 import Home from "./components/Home/Home.jsx";
 import Timer from "./components/Timer.jsx";
 import Barbers from "./components/Home/Barbers.jsx";
@@ -40,7 +40,7 @@ function App() {
                 <Register />
               </Route>
               <Route exact path="/alert">
-                <AlertSuccess />
+                <AlertOrder />
               </Route>
               {/* <Route component={ErrorNotFound} /> */}
             </Switch>

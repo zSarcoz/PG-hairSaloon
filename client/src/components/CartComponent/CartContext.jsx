@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { addToCart, currentUserLocalStorage} from "../../redux/actions";
+import { addToCart, currentUserLocalStorage, currentBarberLocalStorage} from "../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { store } from "../../redux/store/index";
 import Swal from "sweetalert2";
@@ -26,25 +26,36 @@ export const CartProvider = ({ children }) => {
       return [];
     }
   });
+  const [barber, setBarber] = useState(() => {
+    try {
+      const barberLocalStorage = localStorage.getItem("currentBarberLocal");
+      return barberLocalStorage ? JSON.parse(barberLocalStorage) : [];
+    } catch (error) {
+      return [];
+    }
+  });
   
   useEffect(() => {
     // console.log("sera este el problema",products)
     localStorage.setItem("currentUserLocal", JSON.stringify(users));
-    if (!pay) localStorage.setItem("cartProducts", JSON.stringify(products));
+    localStorage.setItem("currentBarberLocal", JSON.stringify(barber));
+    localStorage.setItem("cartProducts", JSON.stringify(products));
     setPay(false);
     if (pay && products && users !== []) {
       setTimeout(() => {
+        setBarber([])
         setUser([]);
         setProducts([]);
       }, "3000");
     }
     console.log("user local cartContext", users);
+    console.log("baber local cartContext", barber);
     console.log("products", products);
     // else localStorage.setItem("cartProducts", JSON.stringify([]))
 
     // console.log(products)
     // const cartProductArray = localStorage.getItem("cartProducts");
-  }, [products, pay, users]);
+  }, [products, pay, users, barber]);
 
   const addProductToCart = async ({
     id,
@@ -157,6 +168,12 @@ export const CartProvider = ({ children }) => {
     console.log("createUser", users);
     await store.dispatch(currentUserLocalStorage({id, name, lastName, email, direction, phone, cedula}));
   };
+  const saveBarber = async ({id,email,phone,name,lastName,cedula,available,checkIn}) => {
+    setBarber([{id,email,phone,name,lastName,cedula,available,checkIn}]);
+    console.log("saveBarber", barber);
+    await store.dispatch(currentBarberLocalStorage({id,email,phone,name,lastName,cedula,available,checkIn}));
+  };
+  
   // const createUser = ({props}) => {
   //   console.log("createUser", user);
   //   setUser([...user ,{props}]);
@@ -171,6 +188,8 @@ export const CartProvider = ({ children }) => {
         substractdProductFromCart,
         products,
         users,
+        barber,
+        saveBarber,
         setProducts,
         deleteProductFromCart,
         setPay,

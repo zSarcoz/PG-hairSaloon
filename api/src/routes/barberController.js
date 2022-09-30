@@ -29,7 +29,7 @@ router.get("/", async (req, res, next) => {
 });
 
 router.post("/", async (req, res) => {
-  const { name, lastName, email, cedula, password, phone, checkIn } =
+  const { name, lastName, email, cedula, password, phone, available, permissions } =
     req.body;
   const hashFun = await hash(password);
   try {
@@ -37,10 +37,12 @@ router.post("/", async (req, res) => {
       name: name,
       lastName: lastName,
       email: email,
+      permissions: permissions,
       // password: password,
       password: hashFun,
       cedula: cedula,
       phone: phone,
+      available: available
       // checkIn: checkIn
     });
     return res.status(201).json(barberCreated);
