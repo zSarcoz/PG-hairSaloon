@@ -5,8 +5,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 20%;
-  height: 15vh;
+  min-width: 24%;
+  height: 18vh;
+  margin: 3% 3%;
+  position: relative;
   /* margin: 5px; */
   /* padding: 0px; */
   color: #6c7287;
@@ -15,22 +17,18 @@
   cursor: pointer;
   /* background-color: pink; */
 }
-.serviceCard:focus {
-    box-shadow: 5px 10px 10px rgba(73, 73, 73, 0.432);
-    border-radius: 30px;
-    border: 1px solid rgb(126, 27, 27);
-    background-color: #8d8d8d41;
-}
+
 .servicesCardMan {
-    display: flex;
+  display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
   /* background-color: rgba(240, 240, 240, 0.322); */
-  width: 20%;
-  height: 15vh;
-  margin: 0px 20px;
+  min-width: 22%;
+  height: 18vh;
+  margin: 2% 5%;
   /* padding: 10px; */
   color: #f97b51;
   /* gap: 10px; */
@@ -41,12 +39,43 @@
   /* background-color: rgb(31, 111, 216); */
 }
 .servicesCardMan:focus {
-    box-shadow: 5px 10px 10px rgba(73, 73, 73, 0.432);
-    border-radius: 30px;
-    border: 1px solid rgb(126, 27, 27);
-    background-color: #8d8d8d41;
+  box-shadow: 5px 10px 10px rgba(73, 73, 73, 0.432);
+  border-radius: 30px;
+  border: 1px solid rgb(126, 27, 27);
+  background-color: #8d8d8d41;
 }
-
+.addCartBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.addCartBtnT {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 18vw;
+  padding: 2%;
+  /* background-color: blue; */
+  border: 2px solid #6c7287a1;
+  box-shadow: 2px 2px 10px #6c6c6cb6;
+  border-radius: 10%;
+}
+.deleteCartBtn {
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 15px;
+  background-color: #EA5959;
+  border-radius: 50%;
+  margin-top: 5%;
+  padding: 4% 8%;
+  /* width: 3vw; */
+  position: absolute;
+  color: white;
+  top: 2px;
+  right: 0;
+}
 .logosServices {
   height: 90px;
   /* width: 700px; */
@@ -54,7 +83,7 @@
 
 .name {
   font-family: "Montserrat", sans-serif;
-  font-size: 15px;
+  font-size: 17px;
   letter-spacing: 2px;
   font-weight: 900;
   color: #6c7287;
@@ -70,7 +99,7 @@
 
 .nameM {
   font-family: "Montserrat", sans-serif;
-  font-size: 20px;
+  font-size: 17px;
   letter-spacing: 2px;
   font-weight: 800;
   /* color: #F97B51; */

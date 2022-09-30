@@ -105,7 +105,7 @@ export function setServices(payload) {
 }
 
 export function filterBySex(payload) {
-  console.log("action redux", payload)
+  // console.log("action redux", payload)
   return {
     type: "FILTER_BY_SEX",
     payload,

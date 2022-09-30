@@ -21,7 +21,7 @@ export default function Register() {
   const dispatch = useDispatch();
   const [errors, setErrors] = useState({});
   const [isShown, setIsShow] = useState(false);
-  console.log(isShown)
+  // console.log(isShown)
 
   const [name, setName] = useState({ value: "", valid: null });
   const [lastName, setLastName] = useState({ value: "", valid: null });

@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {
@@ -20,12 +20,12 @@ import { CartContext } from "../CartComponent/CartContext.jsx";
 
 export default function Services() {
   const { createUser, users, products } = useContext(CartContext);
-  // console.log(users, products)
+  const [isDisplayed, setIsDisplayed] = useState(false);
+  const [touch, setTouch] = useState(false);
+  const [touch1, setTouch1] = useState(false);
+
   const allServices = useSelector((state) => state.services);
   const currentUser = useSelector((state) => state.currentUser);
-  const userA = useSelector((state) => state.currentUserLocalStorage);
-  console.log("Current user form services", currentUser[0]);
-
   const filterSex = useSelector((state) => state.filterBySexo);
   const dispatch = useDispatch();
   const navigate = useHistory();
@@ -34,34 +34,37 @@ export default function Services() {
     dispatch(setServices());
     dispatch(getServices());
     dispatch(getUsers());
+    createUser(currentUser[0]);
     setTimeout(() => {
-      createUser(currentUser[0]);
-    }, 1000)
+      setIsDisplayed(true);
+    }, 250);
   }, [dispatch]);
   let mujeres = allServices.filter((service) => service.sexo === "Consentidas");
   let hombres = allServices.filter((service) => service.sexo === "Consentidos");
-  console.log("aaaaaa", users);
+  console.log("Usuario", users);
 
   function handleOnclick(value) {
-    console.log("button value", value);
+    // console.log("button value", value);
     if (value === "Consentidas") {
       // return mujeres
       dispatch(filterBySex(mujeres));
-      console.log("Mujeres: ", mujeres);
+      // console.log("Mujeres: ", mujeres);
     } else {
       // return hombres
       dispatch(filterBySex(hombres));
-      console.log("Hombres: ", hombres);
+      // console.log("Hombres: ", hombres);
     }
   }
 
   return (
     <>
-      {!currentUser.length ? (
+      {!isDisplayed ? (
+        <></>
+      ) : !users.length ? (
         navigate.push("/")
-      ) : ( 
+      ) : (
         <>
-          <div className={s.body}>
+          <div className={filterSex.length ? s.body1 : s.body}>
             <Cart />
             <div className={s.container}>
               <div className={s.fondoImgSwd}>
@@ -72,15 +75,23 @@ export default function Services() {
               {/* <div> */}
               <div className={s.botones}>
                 <button
-                  className={s.btn}
-                  onClick={() => handleOnclick("Consentidas")} 
+                  className={touch === true ? s.btnT : s.btn}
+                  onClick={() => {
+                    handleOnclick("Consentidas"),
+                      setTouch(true),
+                      setTouch1(false);
+                  }}
                 >
                   {/* • Consentidas • */}
                   <img className={s.btnC} src={consentidas} alt="icon" />
                 </button>
                 <button
-                  className={s.btn}
-                  onClick={() => handleOnclick("Consentidos")}
+                  className={touch1 === true ? s.btnT : s.btn}
+                  onClick={() => {
+                    handleOnclick("Consentidos"),
+                      setTouch1(true),
+                      setTouch(false);
+                  }}
                 >
                   {/* • Consentidos • */}
                   {/* xmlns="<http://www.w3.org/2000/svg>" */}
@@ -90,16 +101,19 @@ export default function Services() {
               {!filterSex.length ? (
                 ""
               ) : (
-                <div className={s.cards}>
-                  {filterSex?.map((project, index) => {
-                    console.log(project);
-                    return <ServicesCard key={index} {...project} />;
-                  })}
-                </div>
+                <>
+                  <div className={s.cards}>
+                    {filterSex?.map((project, index) => {
+                      // console.log(project);
+                      return <ServicesCard key={index} {...project} />;
+                    })}
+                  </div>
+                  <button onClick={() => navigate.push("/barbers")} className={s.btnOk}>OK</button>
+                </>
               )}
             </div>
+            <Footer color={"#6C7287"} />
           </div>
-          <Footer color={"#6C7287"} />
         </>
       )}
     </>

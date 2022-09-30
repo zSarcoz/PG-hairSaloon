@@ -8,11 +8,15 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  gap: 25%;
+  gap: 20%;
 }
 
 .body {
   height: 100vh;
+  background-color: #fcf6f0;
+}
+.body1 {
+  height: 100%;
   background-color: #fcf6f0;
 }
 
@@ -37,7 +41,7 @@
   color: #6c7287;
   font-family: "Montserrat", sans-serif;
   letter-spacing: 2px;
-  margin-bottom: 2%;
+  margin-bottom: 3%;
 }
 .fondoImg {
     margin-top: -19px;
@@ -60,19 +64,37 @@
   color: #6c7287;
   font-family: "Montserrat", sans-serif;
 }
-.btn:focus {
+.btnT {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  height: 100%;
+  width: 40vw;
+  padding: 20px;
+  /* background-color: red; */
+  font-size: 30px;
+  font-weight: 500;
+  /* padding: 20px; */
+  /* border: 1px solid black; */
+  box-shadow: 4px 7px 3px #00000027;
+  /* background-color: rgb(209, 209, 209); */
+  color: #6c7287;
+  font-family: "Montserrat", sans-serif;
+}
+/* .btnT:focus {
   height: 18vh;
   width: 38vw;
-  box-shadow: 5px 5px 10px #00000027;
   height: 100%;
 }
-.btn:focus .btc {
+.btnT:focus .btcT {
   height: 100%;
-}
-.btnC {
-  /* width: 10%; */
+} */
+/* .btnC { */
+  /* width: 10%;
     height: 90%;
-}
+} */
 
 .logoBtn {
   display: flex;
@@ -94,9 +116,18 @@
   /* width: 80%; */
   flex-wrap: wrap;
   align-items: center;
-  margin: 2% 5%;
+  margin: 4% 5%;
   padding: 5px 40px;
   background-color: rgb(255, 255, 255);
   border-radius: 50px;
   justify-content: center;
+}
+.btnOk {
+  background-color: #824B62;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  color: white;
+  letter-spacing: 1px;
+  padding: 2% 2%;
+  border-radius: 15%;
 }
